@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honest Plugin — WooCommerce B2B, M-Pesa payments and WordPress security</title>
+<meta name="description" content="Three WordPress and WooCommerce plugins built around one check that has to be right. Wholesale pricing with correct European VAT, M-Pesa payments confirmed against a real receipt, and security that reports instead of guessing.">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="assets/site.css">
+<!-- El formulario de contacto se configura en assets/site.js (constante CONTACT).
+     Un solo sitio para las cuatro páginas. Tu correo NO va en el HTML. -->
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugin">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugin</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="is-current">Home</a>
+      <a href="entrepo.html">Entrepo</a>
+      <a href="malipo.html">Malipo</a>
+      <a href="aegis.html">Aegis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-solid" href="entrepo.html#pricing">Get Entrepo Pro</a>
+  </div>
+</div>
+
+<header class="stage">
+  <svg class="glyph" viewBox="0 0 520 380" aria-hidden="true" fill="none">
+    <path class="g-shadow" d="M40 214 L188 350 L486 40" stroke-width="46"/>
+    <path class="g-line" d="M40 214 L188 350 L486 40" stroke-width="17"/>
+  </svg>
+  <div class="shell">
+    <div class="hero">
+      <p class="data up up-1" style="color:var(--blue)">WooCommerce &amp; WordPress</p>
+      <h1 class="up up-2">Software that states only what it can <em>verify</em>.</h1>
+      <p class="lede up up-3">
+        Wholesale pricing with European VAT that is actually correct, M-Pesa payments confirmed
+        against a real receipt, and security that reports instead of guessing.
+        <b>Including, below, what is not finished yet.</b>
+      </p>
+      <div class="hero-cta up up-4">
+        <a class="btn btn-solid" href="entrepo.html">Explore Entrepo</a>
+        <a class="btn btn-ghost" href="#catalogue">See all three</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="shell report-wrap">
+  <section class="report" aria-label="Product status">
+    <div class="report-head">
+      <p class="data">Status of record</p>
+      <p class="data">Three products · One on sale today</p>
+    </div>
+    <div class="row">
+      <p class="row-name"><a href="entrepo.html">Entrepo</a></p>
+      <p class="row-what">Wholesale and B2B pricing for WooCommerce, with European VAT applied correctly.</p>
+      <p><span class="stamp wait">Free build in review</span></p>
+    </div>
+    <div class="row">
+      <p class="row-name"><a href="malipo.html">Malipo</a></p>
+      <p class="row-what">M-Pesa payments for WooCommerce stores in Kenya, confirmed against a real receipt.</p>
+      <p><span class="stamp build">In development</span></p>
+    </div>
+    <div class="row">
+      <p class="row-name"><a href="aegis.html">Aegis Security</a></p>
+      <p class="row-what">Hardening, core integrity and malware detection for WordPress.</p>
+      <p><span class="stamp pass">Running in production</span></p>
+    </div>
+  </section>
+</div>
+
+<main>
+<section class="band-deep" id="catalogue">
+  <div class="shell">
+    <p class="data sec-kicker rv">The catalogue</p>
+    <h2 class="sec-title rv">One check each, done properly</h2>
+    <p class="sec-sub rv">Each plugin exists because one specific thing is usually got wrong, and getting it right is worth paying for. Each has its own page, its own free tier and its own pricing.</p>
+
+    <div class="cards">
+      <a class="card rv rv-d1" href="entrepo.html">
+        <p class="data" style="color:var(--blue-lift)">WooCommerce · B2B</p>
+        <h3>Entrepo</h3>
+        <p>Net prices per customer group, with VIES validation, intra-Community reverse charge and the Spanish equivalence surcharge handled inside the plugin.</p>
+        <span class="stamp on-dark wait">Free build in review</span>
+        <span class="go">Pricing &amp; VAT simulator
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-7 7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a class="card rv rv-d2" href="malipo.html">
+        <p class="data" style="color:var(--blue-lift)">WooCommerce · Kenya</p>
+        <h3>Malipo</h3>
+        <p>M-Pesa through Safaricom's Daraja API. A payment counts when there is a real receipt and a matching amount — never on "request accepted".</p>
+        <span class="stamp on-dark build">In development</span>
+        <span class="go">Pricing &amp; add-ons
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-7 7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a class="card rv rv-d3" href="aegis.html">
+        <p class="data" style="color:var(--blue-lift)">WordPress · Security</p>
+        <h3>Aegis Security</h3>
+        <p>Hardening, two-factor, core integrity against official checksums and malware scanning. It reports what it finds and never deletes a file.</p>
+        <span class="stamp on-dark pass">Running in production</span>
+        <span class="go">What it does
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-7 7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band-navy">
+  <div class="shell">
+    <p class="data sec-kicker rv">How these are built</p>
+    <h2 class="sec-title rv">Three rules that do not bend</h2>
+    <div class="rule-grid">
+      <div class="rule-item rv rv-d1">
+        <p class="data">Scope</p>
+        <h3>Fewer features, all of them working</h3>
+        <p>The leading wholesale plugin ships 137 features and is disliked anyway. Reliability is the feature. Saying no to the 138th is what keeps the other 137 correct.</p>
+      </div>
+      <div class="rule-item rv rv-d2">
+        <p class="data">Licensing</p>
+        <h3>A lapsed licence never breaks a store</h3>
+        <p>When a licence expires you stop receiving updates and support. Nothing that was already running switches off. Holding a live store hostage is not a business model.</p>
+      </div>
+      <div class="rule-item rv rv-d3">
+        <p class="data">Disclosure</p>
+        <h3>The gaps are published too</h3>
+        <p>Each plugin's own FAQ states what it does not cover, and what it does not delete when you uninstall it. Nobody should meet a limitation for the first time in production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Enquiries</p>
+      <h2>Wholesale, payments, or a store that needs cleaning up</h2>
+      <p>Agency terms and volume licences, or setup work — a wholesale catalogue configured with correct intra-Community VAT, M-Pesa taking payments on a live store, a compromised site cleaned and hardened. You get a real answer, not a sales sequence.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Name</span><input type="text" name="name" required placeholder="Your name"></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com"></label>
+      </div>
+      <label><span>What about</span>
+        <select name="product">
+          <option>Entrepo — wholesale &amp; VAT</option>
+          <option>Malipo — M-Pesa payments</option>
+          <option>Aegis — security &amp; cleanup</option>
+          <option>Agency licensing</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label><span>Message</span><textarea name="message" required placeholder="What are you trying to do, and what is in the way?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Your address is used to reply, nothing else. No list, no sequence.</p>
+      <noscript><p>This form needs JavaScript enabled to send.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data">Honest Plugin — WordPress &amp; WooCommerce</p>
+    <p class="data">
+      <a href="entrepo.html">Entrepo</a> ·
+      <a href="malipo.html">Malipo</a> ·
+      <a href="aegis.html">Aegis Security</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

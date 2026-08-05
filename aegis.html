@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aegis Security — hardening and malware detection for WordPress | Honest Plugin</title>
+<meta name="description" content="Login throttling, TOTP two-factor, hardening, core integrity against official checksums and malware scanning for WordPress. It reports what it finds and never deletes a file.">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="assets/site.css">
+<!-- ═══════════════════════════════════════════════════════════════
+     CAMBIAR ANTES DE PUBLICAR:
+       El formulario se configura en assets/site.js (constante CONTACT).
+     NOTA: Aegis no está publicado todavía, así que esta página NO
+     lleva precios a propósito. Cuando salga, copiar el bloque
+     .plans de entrepo.html y añadir los enlaces de Freemius.
+     ═══════════════════════════════════════════════════════════════ -->
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugin — home">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugin</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="entrepo.html">Entrepo</a>
+      <a href="malipo.html">Malipo</a>
+      <a href="aegis.html" class="is-current">Aegis</a>
+    </nav>
+    <a class="btn btn-ghost" href="#contact">Get notified</a>
+  </div>
+</div>
+
+<div class="subnav">
+  <div class="shell">
+    <p class="here">Aegis Security</p>
+    <a href="#spec">Specification</a>
+    <a href="#stance">What it will not do</a>
+    <a href="#contact">Availability</a>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugin</a> <span>/</span> <span style="color:var(--blue)">Aegis Security</span></p>
+    <div class="hero" style="max-width:44rem">
+      <h1 class="up up-2">It reports what it finds. It does not <em>guess</em>.</h1>
+      <p class="lede up up-3">
+        Hardening, two-factor, core integrity and malware detection for WordPress. Every file it
+        flags is a file it shows you — <b>Aegis never deletes anything.</b> The decision stays with
+        whoever owns the site.
+      </p>
+      <div class="hero-cta up up-4">
+        <span class="stamp on-dark pass">Running in production</span>
+        <span class="stamp on-dark build">Version 0.4.6 · not yet released</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="band-paper" id="spec">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Specification</p>
+    <h2 class="sec-title rv">Ten modules, no external dependencies</h2>
+
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Built as an agency tool for the sites we look after, which is why it behaves like one: it assumes nothing, it switches everything off individually, and it has a kill switch for the day a security plugin is the thing breaking your site.</p>
+        <p class="meta">
+          <span>WordPress</span>
+          <span>No external dependencies</span>
+          <span>Kill switch constant</span>
+          <span>Version 0.4.6</span>
+          <span>Live on client sites</span>
+        </p>
+      </div>
+      <dl class="spec">
+        <div><dt>Access</dt><dd>Login throttling per IP, user enumeration blocked, and a hidden login URL.</dd></div>
+        <div><dt>Two-factor</dt><dd>TOTP built to RFC 6238 — works with any standard authenticator app, with no third-party service involved.</dd></div>
+        <div><dt>Hardening</dt><dd>XML-RPC, the file editor and PHP execution in uploads, plus security headers. Each one switchable, none of them assumed.</dd></div>
+        <div><dt>Integrity</dt><dd>WordPress core verified file by file against the official wordpress.org checksums.</dd></div>
+        <div><dt>Detection</dt><dd>Signature scanning triggered by uploads, updates and plugin activation, deferred to cron so the page request stays fast.</dd></div>
+        <div><dt>Firewall</dt><dd>Request inspection running in monitor mode, so you see what it would have blocked before it blocks anything.</dd></div>
+        <div><dt>Reporting</dt><dd>Activity log with email alerts, plus update and vulnerability notices for what you actually have installed.</dd></div>
+        <div><dt>Escape hatch</dt><dd>A single constant in wp-config disables the whole plugin, for when you are locked out and need the site back now.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band-paper-2" id="stance">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">The stance</p>
+    <h2 class="sec-title rv">What it will not do</h2>
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">A security plugin has more power to break a site than most attacks do. These are the limits it holds to, on purpose.</p>
+      </div>
+      <dl class="spec">
+        <div><dt>No deletion</dt><dd>It never removes or quarantines a file on its own. A false positive that deletes a theme file costs more than the malware would have.</dd></div>
+        <div><dt>No lock-in</dt><dd>No external service is required for it to work. Nothing phones home to make a decision about your site.</dd></div>
+        <div><dt>No silent blocking</dt><dd>The firewall starts in monitor mode. You see what it would have stopped before you let it stop anything.</dd></div>
+        <div><dt>No scare screens</dt><dd>No red banners selling an upgrade. A finding is reported once, with the file and the reason.</dd></div>
+      </dl>
+    </div>
+
+    <p class="caveat rv">
+      <b>Where it stands.</b> Aegis is version 0.4.6 and runs on live client sites, but it has not been
+      released publicly and has not been through the WordPress.org review. Known work before release:
+      the firewall does not inspect POST bodies yet, and integrity checking covers WordPress core but
+      not plugins and themes.
+    </p>
+  </div>
+</section>
+
+<section class="band-navy">
+  <div class="shell">
+    <p class="data sec-kicker rv">How these are built</p>
+    <h2 class="sec-title rv">Three rules that do not bend</h2>
+    <div class="rule-grid">
+      <div class="rule-item rv rv-d1">
+        <p class="data">Scope</p>
+        <h3>Fewer features, all of them working</h3>
+        <p>Reliability is the feature. In security especially, a tool you switch off because it keeps crying wolf protects nothing at all.</p>
+      </div>
+      <div class="rule-item rv rv-d2">
+        <p class="data">Licensing</p>
+        <h3>A lapsed licence never breaks a store</h3>
+        <p>When a licence expires you stop receiving updates and support. Nothing that was already running switches off.</p>
+      </div>
+      <div class="rule-item rv rv-d3">
+        <p class="data">Disclosure</p>
+        <h3>The gaps are published too</h3>
+        <p>The limitations above are on this page before you install anything, not discovered afterwards in production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Availability</p>
+      <h2>Not on sale — but the cleanup service is</h2>
+      <p>Aegis is not released yet, so there is nothing to buy on this page. If your site has already been compromised, that is a different conversation and one I can help with today: cleaning it, working out how they got in, and hardening it so it does not happen again.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Name</span><input type="text" name="name" required placeholder="Your name"></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com"></label>
+      </div>
+      <label><span>What about</span>
+        <select name="product">
+          <option selected>My site has been compromised</option>
+          <option>Aegis — tell me when it is released</option>
+          <option>Hardening an existing site</option>
+          <option>Entrepo — wholesale &amp; VAT</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label><span>Message</span><textarea name="message" required placeholder="What is happening, and when did you first notice it?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Your address is used to reply, nothing else. No list, no sequence.</p>
+      <noscript><p>This form needs JavaScript enabled to send.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="index.html">Honest Plugin</a> — WordPress &amp; WooCommerce</p>
+    <p class="data"><a href="entrepo.html">Entrepo</a> · <a href="malipo.html">Malipo</a></p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

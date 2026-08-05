@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malipo — M-Pesa payments for WooCommerce | Honest Plugin</title>
+<meta name="description" content="Accept M-Pesa in Kenya through Safaricom's Daraja API. Payments confirmed against a real receipt, missed callbacks reconciled automatically, and a free tier with the complete payment cycle.">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="assets/site.css">
+<!-- ═══════════════════════════════════════════════════════════════
+     CAMBIAR ANTES DE PUBLICAR:
+       El formulario se configura en assets/site.js (constante CONTACT).
+       "FREEMIUS_MALIPO_PRO"    → checkout Freemius de Malipo Pro
+       "WPORG_MALIPO"           → URL del repositorio cuando se publique
+       Precios: Pro $49 y add-ons $19/$29 → confirmar.
+       El precio base del configurador está en data-base del div#builder.
+     NOTA: Malipo sigue en desarrollo. Los CTA de compra están
+     deliberadamente desactivados (aria-disabled) hasta que esté a la venta.
+     ═══════════════════════════════════════════════════════════════ -->
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugin — home">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugin</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="entrepo.html">Entrepo</a>
+      <a href="malipo.html" class="is-current">Malipo</a>
+      <a href="aegis.html">Aegis</a>
+    </nav>
+    <a class="btn btn-ghost" href="#pricing">See pricing</a>
+  </div>
+</div>
+
+<div class="subnav">
+  <div class="shell">
+    <p class="here">Malipo</p>
+    <a href="#spec">Specification</a>
+    <a href="#compare">Free vs Pro</a>
+    <a href="#pricing">Pricing &amp; add-ons</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugin</a> <span>/</span> <span style="color:var(--blue)">Malipo</span></p>
+    <div class="hero" style="max-width:44rem">
+      <h1 class="up up-2">A payment counts when there is a <em>receipt</em>.</h1>
+      <p class="lede up up-3">
+        M-Pesa for WooCommerce through Safaricom's Daraja API. Malipo marks an order paid against a
+        real M-Pesa receipt and a matching amount — <b>never on "request accepted"</b> — and when a
+        callback never arrives, it goes and asks until it gets a definitive answer.
+      </p>
+      <div class="hero-cta up up-4">
+        <span class="stamp on-dark build">In development · not on sale yet</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ SPEC ══════════════════════════════════════════════════ -->
+<section class="band-paper" id="spec">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Specification</p>
+    <h2 class="sec-title rv">The failure it is built around</h2>
+
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Most lost M-Pesa sales are not failed payments. They are successful payments that the store never recorded, because the callback got lost and nothing went looking for it. That is the problem Malipo exists to close.</p>
+        <p class="meta">
+          <span>Safaricom Daraja API</span>
+          <span>Pay Bill &amp; Till</span>
+          <span>WooCommerce</span>
+          <span>Kenya DPA 2019</span>
+          <span>In development</span>
+        </p>
+      </div>
+      <dl class="spec">
+        <div><dt>Confirmation</dt><dd>An order is marked paid against a real M-Pesa receipt and a matching amount. Never on "request accepted".</dd></div>
+        <div><dt>Reconciliation</dt><dd>If the callback does not arrive, Malipo queries M-Pesa until it has a definitive answer, instead of leaving the order hanging.</dd></div>
+        <div><dt>Recovery</dt><dd>When the STK prompt fails, the customer is shown the Pay Bill number and the reference — and the manual payment matches itself to the order.</dd></div>
+        <div><dt>Validator</dt><dd>Checks credentials, callback URL, permalinks and cron before you go live, so setup mistakes surface on your terms.</dd></div>
+        <div><dt>Payment page</dt><dd>Standalone — no theme, no framework, no jQuery. Built for a phone on a slow connection where the customer pays for data by the megabyte.</dd></div>
+        <div><dt>Privacy</dt><dd>Payer phone numbers are masked on every surface, in line with Kenya's Data Protection Act 2019.</dd></div>
+        <div><dt>Credentials</dt><dd>Daraja credentials are stored encrypted in the merchant's own database.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARE ═══════════════════════════════════════════════ -->
+<section class="band-paper-2" id="compare">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Free vs Pro</p>
+    <h2 class="sec-title rv">The whole payment cycle is free</h2>
+    <p class="sec-sub on-paper rv">
+      The complaint on record against the paid M-Pesa plugins is that merchants pay a lot for very
+      little. So the entire billing cycle — STK Push, receipt confirmation, automatic reconciliation,
+      the validators and the C2B fallback — is in the free build and stays there. Pro is about selling
+      in places that are not your shop.
+    </p>
+
+    <div class="cmp-tools rv">
+      <label class="toggle">
+        <input type="checkbox" id="only-diff">
+        <span class="track"></span>
+        Show only what Pro adds
+      </label>
+    </div>
+
+    <div class="table-scroll rv">
+      <table class="cmp">
+        <thead><tr><th scope="col">Capability</th><th scope="col">Free</th><th scope="col">Pro</th></tr></thead>
+        <tbody>
+          <tr data-diff="no"><td>STK Push (Lipa na M-Pesa)<span class="sub">With both Pay Bill and Till.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Confirmation against a real receipt<span class="sub">Receipt and amount must match. Never "request accepted".</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Automatic reconciliation<span class="sub">If the callback is lost, Malipo asks M-Pesa until it knows.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Recovery when STK fails<span class="sub">Pay Bill and reference shown; the manual payment matches itself.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Go-live validator<span class="sub">Credentials, callback URL, permalinks and cron.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Transaction ledger<span class="sub">Every M-Pesa receipt stored against its order.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="no"><td>Encrypted Daraja credentials<span class="sub">Stored encrypted in your own database.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="yes"><td>Payment links<span class="sub">Charge over WhatsApp, SMS or an invoice, with no online shop.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="yes"><td>C2B account references<span class="sub">A reference per customer, tenant or student.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="yes"><td>Standalone till panel<span class="sub">Take payments without WooCommerce at all.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+          <tr data-diff="yes"><td>Several shortcodes or branches<span class="sub">More than one till or location on a single installation.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING / BUILDER ═════════════════════════════════════ -->
+<section class="band-deep" id="pricing">
+  <div class="shell">
+    <p class="data sec-kicker rv">Malipo Pro &amp; add-ons</p>
+    <h2 class="sec-title rv">Build your own price</h2>
+    <p class="sec-sub rv">
+      Add-ons are separate products, so you pay only for the ones you need. Nothing you do not buy
+      gets installed. Tick what applies to your business and the total updates as you go.
+    </p>
+
+    <div class="builder rv" id="builder" data-base="49" data-currency="$">
+      <div class="addon-list">
+
+        <div class="addon" style="cursor:default">
+          <div class="box" style="border-color:var(--blue);background:rgba(28,141,242,0.11)">
+            <span class="mark-box" style="background:var(--blue);border-color:var(--blue)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="opacity:1;transform:none"><path d="M3.5 12.5 9 18 20.5 6"/></svg>
+            </span>
+            <h4>Malipo Pro</h4>
+            <span class="cost">$49 / year</span>
+            <p class="desc">Payment links, C2B account references, the standalone till panel, and several shortcodes or branches on one installation. Always included.</p>
+          </div>
+        </div>
+
+        <label class="addon">
+          <input type="checkbox" data-price="19" data-name="Invoicing">
+          <div class="box">
+            <span class="mark-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M3.5 12.5 9 18 20.5 6"/></svg></span>
+            <h4>Invoicing</h4>
+            <span class="cost">+ $19 / year</span>
+            <p class="desc">Issue invoices with SMS reminders and reconciliation through M-Pesa Bill Manager.</p>
+            <p class="tag"><span class="stamp on-dark wait">First add-on to ship</span></p>
+          </div>
+        </label>
+
+        <label class="addon">
+          <input type="checkbox" data-price="19" data-name="Disbursements">
+          <div class="box">
+            <span class="mark-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M3.5 12.5 9 18 20.5 6"/></svg></span>
+            <h4>Disbursements</h4>
+            <span class="cost">+ $19 / year</span>
+            <p class="desc">Automatic refunds and payouts to suppliers, over M-Pesa B2C.</p>
+            <p class="tag"><span class="stamp on-dark build">Planned</span></p>
+          </div>
+        </label>
+
+        <label class="addon">
+          <input type="checkbox" data-price="19" data-name="Recurring payments">
+          <div class="box">
+            <span class="mark-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M3.5 12.5 9 18 20.5 6"/></svg></span>
+            <h4>Recurring payments</h4>
+            <span class="cost">+ $19 / year</span>
+            <p class="desc">Dues and subscriptions collected through scheduled STK prompts.</p>
+            <p class="tag"><span class="stamp on-dark build">Planned</span></p>
+          </div>
+        </label>
+
+        <label class="addon">
+          <input type="checkbox" data-price="29" data-name="Fraud checks">
+          <div class="box">
+            <span class="mark-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M3.5 12.5 9 18 20.5 6"/></svg></span>
+            <h4>Fraud checks</h4>
+            <span class="cost">+ $29 / year</span>
+            <p class="desc">Number age on the network, SIM-swap detection and ownership validation before you ship.</p>
+            <p class="tag"><span class="stamp on-dark build">Planned</span></p>
+          </div>
+        </label>
+
+      </div>
+
+      <aside class="tally">
+        <div class="plan-tag"><p class="data">Your configuration</p><span class="pin" id="tally-count">Pro only</span></div>
+        <div class="tally-rows" id="tally-rows"></div>
+        <div class="tally-total">
+          <span>Per year</span>
+          <span class="amt" id="tally-total">$49</span>
+        </div>
+        <a class="btn btn-solid" href="FREEMIUS_MALIPO_PRO" aria-disabled="true">Not on sale yet</a>
+        <p class="note">Malipo is still in development. These are the prices it will launch with — nothing is charged today. Email to be told when it ships.</p>
+      </aside>
+    </div>
+
+    <div class="assurance">
+      <p><b>Free is not a demo.</b> The complete payment cycle is in the free build and stays there. If we ever gated it, we would lose the only argument we have.</p>
+      <p><b>A lapsed licence never strands a payment.</b> Gating applies to switching on new features, never to a charge already in flight.</p>
+      <p><b>Only what you paid for is installed.</b> Add-ons are separate plugins, so you do not carry code for features you never bought.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Kenya · M-Pesa</p>
+      <h2>Tell me when Malipo ships</h2>
+      <p>Or ask about your setup — a Pay Bill versus a Till, several branches on one site, taking payments without WooCommerce, or getting M-Pesa working on a store that already exists. You get a real answer.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Name</span><input type="text" name="name" required placeholder="Your name"></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="you@company.com"></label>
+      </div>
+      <label><span>What about</span>
+        <select name="product">
+          <option selected>Malipo — tell me when it ships</option>
+          <option>Malipo — question about my setup</option>
+          <option>Entrepo — wholesale &amp; VAT</option>
+          <option>Aegis — security &amp; cleanup</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label><span>Message</span><textarea name="message" required placeholder="Pay Bill or Till? One shop or several branches?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Your address is used to reply, nothing else. No list, no sequence.</p>
+      <noscript><p>This form needs JavaScript enabled to send.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="index.html">Honest Plugin</a> — WordPress &amp; WooCommerce</p>
+    <p class="data"><a href="entrepo.html">Entrepo</a> · <a href="aegis.html">Aegis Security</a></p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
