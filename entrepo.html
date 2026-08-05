@@ -73,7 +73,7 @@
       </p>
       <div class="hero-cta up up-4">
         <span class="stamp on-dark wait">Free build in review at WordPress.org</span>
-        <span class="stamp on-dark build">Version 0.1.0</span>
+        <span class="stamp on-dark build">Version 0.2.0</span>
       </div>
     </div>
   </div>
@@ -159,7 +159,7 @@
           <span>PHP 8.0+</span>
           <span>WooCommerce</span>
           <span>English · Español</span>
-          <span>Version 0.1.0</span>
+          <span>Version 0.2.0</span>
         </p>
       </div>
       <dl class="spec">
@@ -175,9 +175,11 @@
     </div>
 
     <p class="caveat rv">
-      <b>Stated limitation.</b> Price hiding covers the storefront, but WooCommerce's public Store API
-      endpoint is not filtered yet — a client calling it directly can still read prices the store meant
-      to hide. This is a documented pending fix, and it is written in the plugin's own FAQ too.
+      <b>Where the limits are.</b> Price hiding covers both the storefront and WooCommerce's public
+      Store API, including the price-range aggregation that filter blocks use. It deliberately does not
+      touch the authenticated wc/v3 API, because that one needs API keys and is how a shop's own ERP or
+      stock sync reads its catalogue — hiding prices there would break real integrations. Store
+      administrators are never affected either.
     </p>
   </div>
 </section>
