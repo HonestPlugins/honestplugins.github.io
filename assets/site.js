@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   HONEST PLUGIN — comportamiento compartido
+   Honest Plugins — comportamiento compartido
    Sin dependencias. Cada bloque comprueba si su marcado existe.
    ═══════════════════════════════════════════════════════════════════ */
 (function () {
@@ -232,7 +232,7 @@
 
       var data = Object.fromEntries(new FormData(form).entries());
       data.access_key = CONTACT.ACCESS_KEY;
-      data.subject = 'Honest Plugin — ' + (data.product || 'enquiry') + ' — ' + (data.name || 'no name');
+      data.subject = 'Honest Plugins — ' + (data.product || 'enquiry') + ' — ' + (data.name || 'no name');
       delete data.botcheck;
 
       button.disabled = true;
