@@ -118,6 +118,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .topbar .btn { padding: 0.62rem 0.9rem; font-size: 0.7rem; }
 @media (min-width: 58rem) { .topbar .btn { padding: 0.72rem 1.2rem; font-size: 0.75rem; } }
 
+/* ── selector de idioma ───────────────────────────────────── */
+
+.lang { position: relative; display: inline-flex; align-items: center; }
+.lang svg { position: absolute; right: 0.55rem; width: 11px; height: 11px; color: var(--on-navy-soft); pointer-events: none; }
+.lang select {
+  appearance: none; -webkit-appearance: none;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
+  color: var(--on-navy); background: transparent;
+  border: 1px solid var(--navy-rule); border-radius: var(--r);
+  padding: 0.58rem 1.75rem 0.58rem 0.7rem;
+  cursor: pointer; transition: border-color 150ms ease, background 150ms ease;
+}
+.lang select:hover { border-color: var(--blue); background: rgba(28,141,242,0.08); }
+.lang select:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+/* el desplegable nativo se pinta con los colores del sistema: forzamos legibilidad */
+.lang option { background: var(--navy); color: var(--on-navy); }
+.topbar-actions { display: flex; align-items: center; gap: 0.5rem; }
+
 /* Barra secundaria: secciones de la página de producto.
    En móvil NO es fija —dos barras pegadas se comen media pantalla—; se queda
    fija solo en escritorio, y su desplazamiento sale de --topbar-h, que el JS

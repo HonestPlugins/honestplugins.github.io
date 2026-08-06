@@ -69,6 +69,45 @@
     if (window.ResizeObserver) new ResizeObserver(set).observe(tb);
   })();
 
+  /* ── 1c. Selector de idioma ───────────────────────────────── */
+  (function idioma() {
+    var select = document.getElementById('lang-select');
+    if (!select) return;
+
+    /* Idiomas publicados. El inglés vive en la raíz; el resto en su
+       subcarpeta. Añadir uno nuevo = crear su carpeta y su <option>. */
+    var CODIGOS = ['es', 'fr', 'de', 'pt', 'sw'];
+
+    /* Ruta base del sitio: '' en un dominio propio o en un sitio de
+       organización de GitHub Pages; '/repo' si algún día se sirve desde un
+       subdirectorio. Se deduce de dónde está el CSS, que siempre cuelga de
+       la raíz del sitio. */
+    var css = document.querySelector('link[rel="stylesheet"][href*="site.css"]');
+    var base = '';
+    if (css) {
+      var href = new URL(css.getAttribute('href'), window.location.href).pathname;
+      base = href.replace(/\/assets\/site\.css.*$/, '');
+    }
+
+    var resto = window.location.pathname.slice(base.length).replace(/^\//, '');
+    var trozos = resto.split('/').filter(Boolean);
+
+    var actual = '';
+    if (trozos.length && CODIGOS.indexOf(trozos[0]) !== -1) {
+      actual = trozos.shift();
+    }
+
+    var fichero = trozos.length ? trozos[trozos.length - 1] : 'index.html';
+    if (fichero.indexOf('.') === -1) fichero = 'index.html';
+
+    select.value = actual;
+
+    select.addEventListener('change', function () {
+      var destino = select.value;
+      window.location.href = base + '/' + (destino ? destino + '/' : '') + fichero;
+    });
+  })();
+
   /* ── 2. Enlace de navegación activo según la sección visible ─ */
   (function scrollSpy() {
     var links = document.querySelectorAll('.subnav a[href^="#"], .nav a[href^="#"]');
