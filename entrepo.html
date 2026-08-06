@@ -23,6 +23,8 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@graph": [
+  {
   "@type": "SoftwareApplication",
   "@id": "https://honestplugins.github.io/entrepo.html#software",
   "name": "Entrepo",
@@ -80,6 +82,54 @@
       "description": "Twenty-five stores under one licence, with priority support."
     }
   ]
+  },
+  {
+    "@type": "FAQPage",
+    "@id": "https://honestplugins.github.io/entrepo.html#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I still need a separate Spanish tax plugin?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Entrepo applies the equivalence surcharge, the intra-Community reverse charge and the Spanish VAT rates itself, on the same prices it calculates for each customer group. A Spanish wholesale store normally needs two plugins — one for B2B pricing and another for tax — and then needs them to agree with each other. Entrepo is both." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Entrepo handle the Spanish recargo de equivalencia?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, at 5.2 % on the 21 % rate and 1.4 % on the 10 % rate, itemised separately from the VAT on the invoice. It is applied per customer, because it depends on the buyer's tax regime and not on the product." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if the VIES service is down?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The order goes through. VAT number validation runs in the background with a retry queue, and the proof of the query is saved on the order in case of an audit. A European Commission outage never blocks a sale." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I sell B2B and B2C from the same WooCommerce shop?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The wholesale customer sees a net price and the retail customer sees a price with tax included, from the same catalogue and the same products." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it slow my shop down with a large catalogue?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Prices are precalculated when a product or a group is saved, not computed on every page load, so carts with several hundred lines behave the same as small ones." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when the Entrepo Pro licence expires?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your groups, prices and tax rules keep working permanently. You stop receiving updates and support. Nothing switches off and no store breaks." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Entrepo work for a shop outside Spain?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Partly. The B2B pricing, price hiding and intra-Community reverse charge work anywhere in the EU. The one-click tax configurator and the equivalence surcharge are Spanish, and connectors for other national tax regimes are not built." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is missing from the free version of Entrepo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Price overrides per product and variation, the customer simulator, and automatic VIES validation. Everything else — unlimited B2B groups, net pricing per role, B2B registration, price hiding and the Spanish VAT configurator — is free permanently and is not a trial." }
+      }
+    ]
+  }
+  ]
 }
 </script>
 </head>
@@ -126,11 +176,12 @@
 <div class="subnav">
   <div class="shell">
     <p class="here">Entrepo</p>
+    <a href="#gap">Why one plugin</a>
     <a href="#simulator">Simulator</a>
     <a href="#spec">Specification</a>
     <a href="#compare">Free vs Pro</a>
+    <a href="#faq">Questions</a>
     <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
   </div>
 </div>
 
@@ -138,11 +189,11 @@
   <div class="shell">
     <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Entrepo</span></p>
     <div class="hero" style="max-width:44rem">
-      <h1 class="up up-2">Wholesale pricing with Spanish <em>VAT</em> built in.</h1>
+      <h1 class="up up-2">Wholesale pricing and Spanish VAT, in <em>one</em> plugin.</h1>
       <p class="lede up up-3">
-        Net prices per customer group for WooCommerce, with intra-Community reverse charge, VIES
-        validation, the Spanish equivalence surcharge and a one-click setup for Spanish VAT rates.
-        <b>And a panel that tells you which rule set the price.</b>
+        A Spanish wholesale store normally needs two plugins: one for B2B pricing, another for the
+        equivalence surcharge and intra-Community VAT — and then needs them to agree with each other.
+        <b>Entrepo is both.</b>
       </p>
       <div class="hero-cta up up-4">
         <span class="stamp on-dark wait">Free build in review at WordPress.org</span>
@@ -154,8 +205,58 @@
 
 <main>
 
+<!-- ══ THE GAP ═══════════════════════════════════════════════ -->
+<section class="band-paper" id="gap">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Where Entrepo fits</p>
+    <h2 class="sec-title rv">The market is split in two, and most shops need both halves</h2>
+    <p class="sec-sub on-paper rv">
+      This is stated plainly because it is checkable, and because it is the honest reason to choose
+      Entrepo. It is not that the other plugins are bad — they are good at the half they cover.
+    </p>
+
+    <div class="table-scroll rv">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th scope="col">Plugin</th>
+            <th scope="col">Net prices per<br>customer group</th>
+            <th scope="col">Spanish VAT and<br>equivalence surcharge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B2B and wholesale plugins<span class="sub">B2BKing, Wholesale Suite, WholesaleX and similar.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><span class="nope"></span></td>
+          </tr>
+          <tr>
+            <td>Spanish tax plugins<span class="sub">Veltrio Tributa, WC Tax Spain and similar.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr>
+            <td><b>Entrepo</b><span class="sub">One plugin, one pricing engine, one place the tax rules live.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="caveat rv">
+      <b>Why running two plugins hurts.</b> Both of them want to decide the price a customer sees.
+      A wholesale plugin sets a net price; a tax plugin then applies a rule to it — and the order in
+      which they run decides the total. When it comes out wrong, neither vendor can debug the other's
+      code, and the shop is left between two support desks. In Entrepo the group discount, the
+      exemption and the surcharge are resolved by the same engine, so there is one answer and one
+      place to look.
+    </p>
+  </div>
+</section>
+
 <!-- ══ SIMULATOR ═════════════════════════════════════════════ -->
-<section class="band-paper" id="simulator">
+<section class="band-paper-2" id="simulator">
   <div class="shell">
     <p class="data sec-kicker on-paper rv">Try the Pro simulator</p>
     <h2 class="sec-title rv">What price will this customer see, and why?</h2>
@@ -219,7 +320,7 @@
 </section>
 
 <!-- ══ SPEC ══════════════════════════════════════════════════ -->
-<section class="band-paper-2" id="spec">
+<section class="band-paper" id="spec">
   <div class="shell">
     <p class="data sec-kicker on-paper rv">Specification</p>
     <h2 class="sec-title rv">What it does, in detail</h2>
@@ -329,6 +430,49 @@
         </tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ═══════════════════════════════════════════════════ -->
+<section class="band-paper-2" id="faq">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Questions</p>
+    <h2 class="sec-title rv">Answered plainly, including when the answer is no</h2>
+
+    <dl class="spec rv" style="margin-top:2.25rem">
+      <div>
+        <dt>Two plugins?</dt>
+        <dd><b>Do I still need a separate Spanish tax plugin?</b> No. Entrepo applies the equivalence surcharge, the intra-Community reverse charge and the Spanish VAT rates itself, on the same prices it calculates for each customer group. If you already run a tax plugin, you can keep it — but you do not need it for these rules.</dd>
+      </div>
+      <div>
+        <dt>Surcharge</dt>
+        <dd><b>Does Entrepo handle the Spanish recargo de equivalencia?</b> Yes, at 5.2 % on the 21 % rate and 1.4 % on the 10 % rate, itemised separately on the invoice from the VAT. It is applied per customer, because it depends on the buyer's tax regime and not on the product.</dd>
+      </div>
+      <div>
+        <dt>VIES</dt>
+        <dd><b>What happens if the VIES service is down?</b> The order goes through. Validation runs in the background with a retry queue, and the proof of the query is saved on the order for an audit. A European Commission outage never blocks a sale — which is also how other serious B2B plugins handle it.</dd>
+      </div>
+      <div>
+        <dt>Mixed</dt>
+        <dd><b>Can I sell B2B and B2C from the same WooCommerce shop?</b> Yes. The wholesale customer sees a net price, the retail customer sees a price with tax included, from the same catalogue and the same products.</dd>
+      </div>
+      <div>
+        <dt>Catalogue size</dt>
+        <dd><b>Will it slow my shop down with a large catalogue?</b> Prices are precalculated when a product or group is saved, not computed on every page load, so carts with several hundred lines behave the same as small ones.</dd>
+      </div>
+      <div>
+        <dt>Expiry</dt>
+        <dd><b>What happens when the Entrepo Pro licence expires?</b> Your groups, prices and tax rules keep working, permanently. You stop receiving updates and support. Nothing switches off and no store breaks.</dd>
+      </div>
+      <div>
+        <dt>Outside Spain</dt>
+        <dd><b>Does Entrepo work for a shop outside Spain?</b> Partly, and this is the honest limit. The B2B pricing, price hiding and intra-Community reverse charge work anywhere in the EU. The one-click tax configurator and the equivalence surcharge are Spanish. Connectors for other national regimes are not built.</dd>
+      </div>
+      <div>
+        <dt>Free version</dt>
+        <dd><b>What is missing from the free version of Entrepo?</b> Price overrides per product, the customer simulator and automatic VIES validation. Everything else — unlimited groups, net pricing, B2B registration, price hiding, the Spanish VAT configurator — is free permanently and is not a trial.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
