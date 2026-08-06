@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Malipo — M-Pesa payments for WooCommerce | Honest Plugins</title>
+<title>Attesta — M-Pesa payments for WooCommerce | Honest Plugins</title>
 <meta name="description" content="Accept M-Pesa in Kenya through Safaricom's Daraja API. Payments confirmed against a real receipt, missed callbacks reconciled automatically, and a free tier with the complete payment cycle.">
 <script>document.documentElement.className+=' js';</script>
 <link rel="stylesheet" href="assets/site.css">
 <!-- ═══════════════════════════════════════════════════════════════
      CAMBIAR ANTES DE PUBLICAR:
        El formulario se configura en assets/site.js (constante CONTACT).
-       "FREEMIUS_MALIPO_PRO"    → checkout Freemius de Malipo Pro
-       "WPORG_MALIPO"           → URL del repositorio cuando se publique
+       "FREEMIUS_Attesta_PRO"    → checkout Freemius de Attesta Pro
+       "WPORG_Attesta"           → URL del repositorio cuando se publique
        Precios: Pro $49 y add-ons $19/$29 → confirmar.
        El precio base del configurador está en data-base del div#builder.
-     NOTA: Malipo sigue en desarrollo. Los CTA de compra están
+     NOTA: Attesta sigue en desarrollo. Los CTA de compra están
      deliberadamente desactivados (aria-disabled) hasta que esté a la venta.
      ═══════════════════════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": "https://honestplugins.github.io/malipo.html#software",
-  "name": "Malipo",
-  "alternateName": "Malipo — M-Pesa Payments for WooCommerce",
-  "url": "https://honestplugins.github.io/malipo.html",
+  "@id": "https://honestplugins.github.io/attesta.html#software",
+  "name": "Attesta",
+  "alternateName": "Attesta — M-Pesa Payments for WooCommerce",
+  "url": "https://honestplugins.github.io/attesta.html",
   "applicationCategory": "BusinessApplication",
   "applicationSubCategory": "WooCommerce payment gateway",
   "operatingSystem": "WordPress, WooCommerce",
@@ -66,7 +66,7 @@
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="entrepo.html">Entrepo</a>
-      <a href="malipo.html" class="is-current">Malipo</a>
+      <a href="attesta.html" class="is-current">Attesta</a>
       <a href="aegis.html">Aegis</a>
       <a href="services.html">Services</a>
     </nav>
@@ -75,9 +75,6 @@
         <select id="lang-select" aria-label="Language">
           <option value="">English</option>
           <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
           <option value="sw">Kiswahili</option>
         </select>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -89,7 +86,7 @@
 
 <div class="subnav">
   <div class="shell">
-    <p class="here">Malipo</p>
+    <p class="here">Attesta</p>
     <a href="#spec">Specification</a>
     <a href="#compare">Free vs Pro</a>
     <a href="#pricing">Pricing &amp; add-ons</a>
@@ -99,11 +96,11 @@
 
 <header class="stage short">
   <div class="shell">
-    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Malipo</span></p>
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Attesta</span></p>
     <div class="hero" style="max-width:44rem">
       <h1 class="up up-2">A payment counts when there is a <em>receipt</em>.</h1>
       <p class="lede up up-3">
-        M-Pesa for WooCommerce through Safaricom's Daraja API. Malipo marks an order paid against a
+        M-Pesa for WooCommerce through Safaricom's Daraja API. Attesta marks an order paid against a
         real M-Pesa receipt and a matching amount — <b>never on "request accepted"</b> — and when a
         callback never arrives, it goes and asks until it gets a definitive answer.
       </p>
@@ -124,7 +121,7 @@
 
     <div class="split rv" style="margin-top:2.25rem">
       <div>
-        <p class="claim">Most lost M-Pesa sales are not failed payments. They are successful payments that the store never recorded, because the callback got lost and nothing went looking for it. That is the problem Malipo exists to close.</p>
+        <p class="claim">Most lost M-Pesa sales are not failed payments. They are successful payments that the store never recorded, because the callback got lost and nothing went looking for it. That is the problem Attesta exists to close.</p>
         <p class="meta">
           <span>Safaricom Daraja API</span>
           <span>Pay Bill &amp; Till</span>
@@ -135,7 +132,7 @@
       </div>
       <dl class="spec">
         <div><dt>Confirmation</dt><dd>An order is marked paid against a real M-Pesa receipt and a matching amount. Never on "request accepted".</dd></div>
-        <div><dt>Reconciliation</dt><dd>If the callback does not arrive, Malipo queries M-Pesa until it has a definitive answer, instead of leaving the order hanging.</dd></div>
+        <div><dt>Reconciliation</dt><dd>If the callback does not arrive, Attesta queries M-Pesa until it has a definitive answer, instead of leaving the order hanging.</dd></div>
         <div><dt>Recovery</dt><dd>When the STK prompt fails, the customer is shown the Pay Bill number and the reference — and the manual payment matches itself to the order.</dd></div>
         <div><dt>Validator</dt><dd>Checks credentials, callback URL, permalinks and cron before you go live, so setup mistakes surface on your terms.</dd></div>
         <div><dt>Payment page</dt><dd>Standalone — no theme, no framework, no jQuery. Built for a phone on a slow connection where the customer pays for data by the megabyte.</dd></div>
@@ -176,7 +173,7 @@
           <tr data-diff="no"><td>Confirmation against a real receipt<span class="sub">Receipt and amount must match. Never "request accepted".</span></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
-          <tr data-diff="no"><td>Automatic reconciliation<span class="sub">If the callback is lost, Malipo asks M-Pesa until it knows.</span></td>
+          <tr data-diff="no"><td>Automatic reconciliation<span class="sub">If the callback is lost, Attesta asks M-Pesa until it knows.</span></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
           <tr data-diff="no"><td>Recovery when STK fails<span class="sub">Pay Bill and reference shown; the manual payment matches itself.</span></td>
@@ -212,7 +209,7 @@
 <!-- ══ PRICING / BUILDER ═════════════════════════════════════ -->
 <section class="band-deep" id="pricing">
   <div class="shell">
-    <p class="data sec-kicker rv">Malipo Pro &amp; add-ons</p>
+    <p class="data sec-kicker rv">Attesta Pro &amp; add-ons</p>
     <h2 class="sec-title rv">Build your own price</h2>
     <p class="sec-sub rv">
       Add-ons are separate products, so you pay only for the ones you need. Nothing you do not buy
@@ -227,7 +224,7 @@
             <span class="mark-box" style="background:var(--blue);border-color:var(--blue)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="opacity:1;transform:none"><path d="M3.5 12.5 9 18 20.5 6"/></svg>
             </span>
-            <h4>Malipo Pro</h4>
+            <h4>Attesta Pro</h4>
             <span class="cost">$49 / year</span>
             <p class="desc">Payment links, C2B account references, the standalone till panel, and several shortcodes or branches on one installation. Always included.</p>
           </div>
@@ -286,8 +283,8 @@
           <span>Per year</span>
           <span class="amt" id="tally-total">$49</span>
         </div>
-        <a class="btn btn-solid" href="FREEMIUS_MALIPO_PRO" aria-disabled="true">Not on sale yet</a>
-        <p class="note">Malipo is still in development. These are the prices it will launch with — nothing is charged today. Email to be told when it ships.</p>
+        <a class="btn btn-solid" href="FREEMIUS_Attesta_PRO" aria-disabled="true">Not on sale yet</a>
+        <p class="note">Attesta is still in development. These are the prices it will launch with — nothing is charged today. Email to be told when it ships.</p>
       </aside>
     </div>
 
@@ -305,7 +302,7 @@
   <div class="shell">
     <div>
       <p class="data">Kenya · M-Pesa</p>
-      <h2>Tell me when Malipo ships</h2>
+      <h2>Tell me when Attesta ships</h2>
       <p>Or ask about your setup — a Pay Bill versus a Till, several branches on one site, taking payments without WooCommerce, or getting M-Pesa working on a store that already exists. You get a real answer.</p>
     </div>
 
@@ -316,8 +313,8 @@
       </div>
       <label><span>What about</span>
         <select name="product">
-          <option selected>Malipo — tell me when it ships</option>
-          <option>Malipo — question about my setup</option>
+          <option selected>Attesta — tell me when it ships</option>
+          <option>Attesta — question about my setup</option>
           <option>Entrepo — wholesale &amp; VAT</option>
           <option>Aegis — security &amp; cleanup</option>
           <option>Something else</option>

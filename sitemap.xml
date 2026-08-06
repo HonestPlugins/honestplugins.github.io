@@ -10,6 +10,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://honestplugins.github.io/attesta.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/attesta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/attesta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/attesta.html"/>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://honestplugins.github.io/entrepo.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/entrepo.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/entrepo.html"/>
@@ -22,6 +30,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/aegis.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/aegis.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/aegis.html"/>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://honestplugins.github.io/es/attesta.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/attesta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/attesta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/attesta.html"/>
     <lastmod>2026-08-06</lastmod>
     <priority>0.8</priority>
   </url>
@@ -42,14 +58,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://honestplugins.github.io/es/malipo.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/malipo.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/malipo.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/malipo.html"/>
-    <lastmod>2026-08-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://honestplugins.github.io/es/services.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/services.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/services.html"/>
@@ -64,14 +72,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/index.html"/>
     <lastmod>2026-08-06</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://honestplugins.github.io/malipo.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/malipo.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/malipo.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/malipo.html"/>
-    <lastmod>2026-08-06</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://honestplugins.github.io/services.html</loc>

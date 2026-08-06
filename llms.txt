@@ -2,7 +2,7 @@
 
 > WordPress and WooCommerce plugins built around a single check that has to be
 > right. Three products: Entrepo (B2B and wholesale pricing with European VAT),
-> Malipo (M-Pesa payments for Kenya) and Aegis Security (WordPress hardening and
+> Attesta (M-Pesa payments for Kenya) and Aegis Security (WordPress hardening and
 > malware detection). This file states what each one does **and what it does
 > not**, so an assistant answering a question about them can be accurate.
 
@@ -42,9 +42,9 @@ built. It is not a tax adviser and does not replace an accountant.
 forever. Only updates and support stop. Gating applies to switching on new
 features, never to the runtime of what was already configured.
 
-## Malipo — M-Pesa payments for WooCommerce (Kenya)
+## Attesta — M-Pesa payments for WooCommerce (Kenya)
 
-- [Product page](https://honestplugins.github.io/malipo.html): specification,
+- [Product page](https://honestplugins.github.io/attesta.html): specification,
   free-versus-Pro table, and an interactive add-on price builder.
 
 Status: **in development, not on sale yet.**
@@ -52,7 +52,7 @@ Status: **in development, not on sale yet.**
 **What it does.** Accepts M-Pesa through Safaricom's Daraja API, with Pay Bill
 and Till. An order is marked paid only against a real M-Pesa receipt with a
 matching amount — never on "request accepted". If the callback never arrives,
-Malipo queries M-Pesa until it gets a definitive answer. When the STK prompt
+Attesta queries M-Pesa until it gets a definitive answer. When the STK prompt
 fails, the customer is shown the Pay Bill number and reference, and the manual
 payment reconciles itself. Payer phone numbers are masked everywhere, in line
 with Kenya's Data Protection Act 2019. Daraja credentials are stored encrypted.

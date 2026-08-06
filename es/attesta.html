@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Malipo — pagos M-Pesa para WooCommerce | Honest Plugins</title>
+<title>Attesta — pagos M-Pesa para WooCommerce | Honest Plugins</title>
 <meta name="description" content="Acepta M-Pesa en Kenia a través de la API Daraja de Safaricom. Pagos confirmados contra un recibo real, callbacks perdidos conciliados solos, y una versión gratuita con el ciclo de cobro completo.">
-<link rel="alternate" hreflang="en" href="https://honestplugins.github.io/malipo.html">
-<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/malipo.html">
-<link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/malipo.html">
+<link rel="alternate" hreflang="en" href="https://honestplugins.github.io/attesta.html">
+<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/attesta.html">
+<link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/attesta.html">
 <script>document.documentElement.className+=' js';</script>
 <link rel="stylesheet" href="../assets/site.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": "https://honestplugins.github.io/es/malipo.html#software",
-  "name": "Malipo",
-  "url": "https://honestplugins.github.io/es/malipo.html",
+  "@id": "https://honestplugins.github.io/es/attesta.html#software",
+  "name": "Attesta",
+  "url": "https://honestplugins.github.io/es/attesta.html",
   "applicationCategory": "BusinessApplication",
   "applicationSubCategory": "Pasarela de pago para WooCommerce",
   "operatingSystem": "WordPress, WooCommerce",
@@ -49,7 +49,7 @@
     <nav class="nav">
       <a href="index.html">Inicio</a>
       <a href="entrepo.html">Entrepo</a>
-      <a href="malipo.html" class="is-current">Malipo</a>
+      <a href="attesta.html" class="is-current">Attesta</a>
       <a href="aegis.html">Aegis</a>
       <a href="services.html">Servicios</a>
     </nav>
@@ -58,9 +58,6 @@
         <select id="lang-select" aria-label="Idioma">
           <option value="">English</option>
           <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
           <option value="sw">Kiswahili</option>
         </select>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
@@ -72,7 +69,7 @@
 
 <div class="subnav">
   <div class="shell">
-    <p class="here">Malipo</p>
+    <p class="here">Attesta</p>
     <a href="#spec">Especificación</a>
     <a href="#compare">Gratis o Pro</a>
     <a href="#pricing">Precios y añadidos</a>
@@ -82,11 +79,11 @@
 
 <header class="stage short">
   <div class="shell">
-    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Malipo</span></p>
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Attesta</span></p>
     <div class="hero" style="max-width:44rem">
       <h1 class="up up-2">Un pago cuenta cuando hay un <em>recibo</em>.</h1>
       <p class="lede up up-3">
-        M-Pesa para WooCommerce a través de la API Daraja de Safaricom. Malipo marca un pedido como
+        M-Pesa para WooCommerce a través de la API Daraja de Safaricom. Attesta marca un pedido como
         pagado contra un recibo M-Pesa real con el importe cuadrado — <b>nunca por un «solicitud
         aceptada»</b> — y cuando el callback no llega, va y pregunta hasta tener respuesta definitiva.
       </p>
@@ -106,7 +103,7 @@
 
     <div class="split rv" style="margin-top:2.25rem">
       <div>
-        <p class="claim">La mayoría de las ventas que se pierden con M-Pesa no son pagos fallidos. Son pagos que salieron bien y que la tienda nunca registró, porque el callback se perdió y nadie fue a buscarlo. Ese es el problema que Malipo existe para cerrar.</p>
+        <p class="claim">La mayoría de las ventas que se pierden con M-Pesa no son pagos fallidos. Son pagos que salieron bien y que la tienda nunca registró, porque el callback se perdió y nadie fue a buscarlo. Ese es el problema que Attesta existe para cerrar.</p>
         <p class="meta">
           <span>API Daraja de Safaricom</span>
           <span>Pay Bill y Till</span>
@@ -117,7 +114,7 @@
       </div>
       <dl class="spec">
         <div><dt>Confirmación</dt><dd>Un pedido se marca pagado contra un recibo M-Pesa real y un importe que cuadra. Nunca por un «solicitud aceptada».</dd></div>
-        <div><dt>Conciliación</dt><dd>Si el callback no llega, Malipo consulta a M-Pesa hasta tener una respuesta definitiva, en vez de dejar el pedido colgado.</dd></div>
+        <div><dt>Conciliación</dt><dd>Si el callback no llega, Attesta consulta a M-Pesa hasta tener una respuesta definitiva, en vez de dejar el pedido colgado.</dd></div>
         <div><dt>Recuperación</dt><dd>Cuando falla el aviso STK, al cliente se le muestra el número de Pay Bill y la referencia — y el pago manual se casa solo con el pedido.</dd></div>
         <div><dt>Validador</dt><dd>Comprueba credenciales, URL de callback, enlaces permanentes y cron antes de pasar a producción, para que los errores de configuración aparezcan cuando tú decidas.</dd></div>
         <div><dt>Página de pago</dt><dd>Independiente — sin tema, sin framework, sin jQuery. Pensada para un móvil con conexión lenta donde el cliente paga los datos por megabyte.</dd></div>
@@ -157,7 +154,7 @@
           <tr data-diff="no"><td>Confirmación contra un recibo real<span class="sub">El recibo y el importe tienen que cuadrar. Nunca «solicitud aceptada».</span></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
-          <tr data-diff="no"><td>Conciliación automática<span class="sub">Si el callback se pierde, Malipo pregunta a M-Pesa hasta saberlo.</span></td>
+          <tr data-diff="no"><td>Conciliación automática<span class="sub">Si el callback se pierde, Attesta pregunta a M-Pesa hasta saberlo.</span></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
             <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td></tr>
           <tr data-diff="no"><td>Recuperación cuando falla el STK<span class="sub">Se muestran Pay Bill y referencia; el pago manual se casa solo.</span></td>
@@ -192,7 +189,7 @@
 
 <section class="band-deep" id="pricing">
   <div class="shell">
-    <p class="data sec-kicker rv">Malipo Pro y añadidos</p>
+    <p class="data sec-kicker rv">Attesta Pro y añadidos</p>
     <h2 class="sec-title rv">Monta tu propio precio</h2>
     <p class="sec-sub rv">
       Los añadidos son productos separados, así que pagas solo por los que necesitas. Lo que no
@@ -207,7 +204,7 @@
             <span class="mark-box" style="background:var(--blue);border-color:var(--blue)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="opacity:1;transform:none"><path d="M3.5 12.5 9 18 20.5 6"/></svg>
             </span>
-            <h4>Malipo Pro</h4>
+            <h4>Attesta Pro</h4>
             <span class="cost">$49 / año</span>
             <p class="desc">Enlaces de cobro, referencias de cuenta C2B, el panel de caja independiente, y varios shortcodes o sedes en una instalación. Siempre incluido.</p>
           </div>
@@ -266,8 +263,8 @@
           <span>Al año</span>
           <span class="amt" id="tally-total">$49</span>
         </div>
-        <a class="btn btn-solid" href="FREEMIUS_MALIPO_PRO" aria-disabled="true">Todavía no a la venta</a>
-        <p class="note">Malipo sigue en desarrollo. Estos son los precios con los que saldrá — hoy no se cobra nada. Escríbeme para que te avise cuando esté.</p>
+        <a class="btn btn-solid" href="FREEMIUS_Attesta_PRO" aria-disabled="true">Todavía no a la venta</a>
+        <p class="note">Attesta sigue en desarrollo. Estos son los precios con los que saldrá — hoy no se cobra nada. Escríbeme para que te avise cuando esté.</p>
       </aside>
     </div>
 
@@ -285,7 +282,7 @@
   <div class="shell">
     <div>
       <p class="data">Kenia · M-Pesa</p>
-      <h2>Avísame cuando salga Malipo</h2>
+      <h2>Avísame cuando salga Attesta</h2>
       <p>O pregúntame por tu montaje — Pay Bill frente a Till, varias sedes en un mismo sitio, cobrar sin WooCommerce, o poner M-Pesa a funcionar en una tienda que ya existe. Recibes una respuesta de verdad.</p>
     </div>
 
@@ -296,8 +293,8 @@
       </div>
       <label><span>Sobre qué</span>
         <select name="product">
-          <option selected>Malipo — avisadme cuando salga</option>
-          <option>Malipo — duda sobre mi montaje</option>
+          <option selected>Attesta — avisadme cuando salga</option>
+          <option>Attesta — duda sobre mi montaje</option>
           <option>Entrepo — mayorista e IVA</option>
           <option>Aegis — seguridad y limpieza</option>
           <option>Otra cosa</option>
