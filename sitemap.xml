@@ -56,6 +56,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://honestplugins.github.io/es/guias/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/guias/index.html"/>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://honestplugins.github.io/es/guias/plugin-b2b-y-plugin-fiscal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/guias/plugin-b2b-y-plugin-fiscal.html"/>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://honestplugins.github.io/es/index.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/index.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/index.html"/>

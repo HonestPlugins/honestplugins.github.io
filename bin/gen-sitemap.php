@@ -30,13 +30,20 @@ foreach ( $rii as $file ) {
 
 sort( $paths );
 
-/* Agrupa por nombre de fichero para emitir los alternos hreflang. */
+/* Idiomas que viven en subcarpeta. El inglés está en la raíz. */
+$idiomas = array( 'es', 'sw' );
+
+/**
+ * Agrupa por la ruta DENTRO del idioma, no por el nombre de fichero: si se
+ * agrupara por nombre, `es/guias/index.html` chocaría con `es/index.html` y
+ * los hreflang saldrían cruzados.
+ */
 $por_fichero = array();
 foreach ( $paths as $p ) {
-	$trozos  = explode( '/', $p );
-	$fichero = array_pop( $trozos );
-	$idioma  = $trozos ? $trozos[0] : 'en';
-	$por_fichero[ $fichero ][ $idioma ] = $p;
+	$trozos = explode( '/', $p );
+	$idioma = ( $trozos && in_array( $trozos[0], $idiomas, true ) ) ? array_shift( $trozos ) : 'en';
+	$clave  = implode( '/', $trozos );
+	$por_fichero[ $clave ][ $idioma ] = $p;
 }
 
 $hoy = date( 'Y-m-d' );
@@ -45,7 +52,9 @@ $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 	. "        xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n";
 
 foreach ( $paths as $p ) {
-	$fichero = basename( $p );
+	$trozos2 = explode( '/', $p );
+	$idioma2 = ( $trozos2 && in_array( $trozos2[0], $idiomas, true ) ) ? array_shift( $trozos2 ) : 'en';
+	$fichero = implode( '/', $trozos2 );
 	$prio    = ( 'index.html' === $p ) ? '1.0' : ( ( 'index.html' === $fichero ) ? '0.9' : '0.8' );
 
 	$xml .= "  <url>\n";
@@ -67,5 +76,7 @@ file_put_contents( $dir . '/sitemap.xml', $xml );
 
 printf( "sitemap.xml generado con %d URLs\n", count( $paths ) );
 foreach ( $paths as $p ) {
-	printf( "  %-24s idiomas: %s\n", $p, implode( ', ', array_keys( $por_fichero[ basename( $p ) ] ) ) );
+	$t2 = explode( '/', $p );
+	if ( $t2 && in_array( $t2[0], $idiomas, true ) ) { array_shift( $t2 ); }
+	printf( "  %-38s idiomas: %s\n", $p, implode( ', ', array_keys( $por_fichero[ implode( '/', $t2 ) ] ) ) );
 }

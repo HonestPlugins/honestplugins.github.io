@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Por qué tu plugin B2B y tu plugin fiscal se pelean por el precio | Honest Plugins</title>
+<meta name="description" content="Si vendes al por mayor en WooCommerce con un plugin de precios B2B y otro de IVA español, tarde o temprano el total no cuadra. Aquí está por qué pasa, los tres casos concretos donde se rompe, y cómo diagnosticarlo tú mismo.">
+<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/guias/plugin-b2b-y-plugin-fiscal.html">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="../../assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "https://honestplugins.github.io/es/guias/plugin-b2b-y-plugin-fiscal.html",
+  "headline": "Por qué tu plugin B2B y tu plugin fiscal se pelean por el precio final",
+  "description": "Por qué el total no cuadra cuando combinas precios mayoristas por grupo con recargo de equivalencia o inversión del sujeto pasivo en WooCommerce, los tres casos concretos donde se rompe, y cómo diagnosticarlo.",
+  "inLanguage": "es",
+  "datePublished": "2026-08-06",
+  "author": { "@type": "Organization", "name": "Honest Plugins", "url": "https://honestplugins.github.io/" },
+  "publisher": { "@type": "Organization", "@id": "https://honestplugins.github.io/#org", "name": "Honest Plugins" },
+  "about": ["WooCommerce", "IVA", "recargo de equivalencia", "B2B", "venta al por mayor"]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="../index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugins — inicio">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugins</b></p>
+    </a>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../entrepo.html">Entrepo</a>
+      <a href="../attesta.html">Attesta</a>
+      <a href="../aegis.html">Aegis</a>
+      <a href="../services.html">Servicios</a>
+      <a href="index.html" class="is-current">Guías</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="lang">
+        <select id="lang-select" aria-label="Idioma">
+          <option value="">English</option>
+          <option value="es">Español</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </span>
+    </div>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="../index.html">Honest Plugins</a> <span>/</span> <a href="index.html">Guías</a></p>
+    <div class="article-head up up-2">
+      <h1>Por qué tu plugin B2B y tu plugin fiscal se pelean por el precio final</h1>
+      <p class="article-meta">6 de agosto de 2026 · WooCommerce · IVA español</p>
+    </div>
+  </div>
+</header>
+
+<main class="band-paper">
+  <div class="shell">
+    <article class="prose">
+
+      <p class="lead">Tienes un plugin que pone precios de mayorista por grupo de cliente. Tienes otro que aplica el recargo de equivalencia y la inversión del sujeto pasivo. Cada uno funciona bien por separado. Juntos, el total de algunos pedidos no cuadra con lo que dice tu gestoría, y nadie sabe cuál de los dos tiene la culpa.</p>
+
+      <p>No es mala suerte. Es una consecuencia previsible de cómo WooCommerce calcula un precio, y por eso se puede diagnosticar en vez de adivinar.</p>
+
+      <h2>Los dos quieren decidir el precio, y solo puede decidirlo uno</h2>
+
+      <p>WooCommerce no guarda un precio final por cliente. Guarda un precio en el producto y luego deja que quien quiera lo modifique, a través de filtros. Los dos que importan aquí son <code>woocommerce_product_get_price</code> y <code>woocommerce_product_get_regular_price</code>.</p>
+
+      <p>Tu plugin B2B se engancha ahí para devolver el precio del grupo. Y el plugin fiscal, según cómo esté hecho, puede engancharse al mismo sitio o actuar más tarde, cuando WooCommerce ya está calculando impuestos.</p>
+
+      <p>El orden lo decide la prioridad con la que cada uno se registró:</p>
+
+<pre><code>add_filter( 'woocommerce_product_get_price', 'precio_b2b', 10, 2 );
+add_filter( 'woocommerce_product_get_price', 'ajuste_fiscal', 20, 2 );</code></pre>
+
+      <p>El de prioridad 20 recibe lo que devolvió el de prioridad 10 y puede pisarlo. Ninguno de los dos autores escribió su plugin pensando en el otro, así que ese número lo eligieron por costumbre, no por acuerdo. Cuando el resultado sale mal, cada uno puede demostrar que su función hace exactamente lo que promete.</p>
+
+      <h2>Tres sitios donde se rompe de verdad</h2>
+
+      <h3>1. El recargo depende del cliente, no del producto</h3>
+
+      <p>Aquí está la incompatibilidad de fondo, y es de diseño. Las clases de impuesto de WooCommerce viven en el producto. El recargo de equivalencia depende del régimen fiscal del comprador: el mismo producto lleva recargo para un minorista acogido al régimen y no lo lleva para otro que no lo está.</p>
+
+      <p>Un plugin fiscal resuelve eso interceptando los tipos que WooCommerce ha encontrado, con filtros como <code>woocommerce_find_rates</code> o <code>woocommerce_matched_tax_rates</code>, y añadiendo la línea del recargo según quién esté comprando.</p>
+
+      <p>El problema aparece cuando el plugin B2B, además de cambiar el precio, cambia el rol del usuario o la dirección de cálculo. El plugin fiscal decide sobre información que el otro ha modificado hace un momento, y el 5,2 % acaba aplicándose sobre una base que no es la que debía.</p>
+
+      <h3>2. Precios con impuestos incluidos</h3>
+
+      <p>Si en los ajustes de WooCommerce tienes «he introducido los precios con impuestos incluidos», cada precio que devuelve un filtro se interpreta como precio con IVA dentro. WooCommerce lo desglosa hacia atrás para saber la base.</p>
+
+      <p>Casi todos los plugins de mayorista trabajan en neto, porque es como piensa un mayorista. Si devuelven 80 en una tienda configurada con impuestos incluidos, WooCommerce entiende que esos 80 ya llevan el 21 % dentro y calcula una base de 66,12.</p>
+
+      <p>El pedido no falla. No hay ningún aviso. Simplemente estás declarando menos IVA del que corresponde, y lo descubres cuando alguien cuadra el trimestre.</p>
+
+      <h3>3. Inversión del sujeto pasivo sobre un precio que ya venía tocado</h3>
+
+      <p>En una venta intracomunitaria a empresa con NIF-IVA válido, el impuesto es cero y lo liquida el comprador. El plugin fiscal quita el IVA.</p>
+
+      <p>Pero si el plugin B2B ya había entregado un precio pensando en un escenario con impuestos, quitar el IVA después no devuelve el precio de partida. Lo típico es un céntimo o dos de diferencia por línea, por el redondeo. En un pedido de cuatro artículos no lo ve nadie. En uno de trescientas líneas, la factura y el albarán no coinciden, y quien lo nota es tu cliente.</p>
+
+      <h2>Cómo saber cuál de los dos lo está haciendo</h2>
+
+      <p>Esto se puede comprobar en diez minutos, sin tocar nada en producción.</p>
+
+      <p><strong>Mira quién está enganchado y en qué orden.</strong> Pon esto en el <code>functions.php</code> de un entorno de pruebas y carga cualquier ficha de producto:</p>
+
+<pre><code>add_action( 'wp_footer', function () {
+    global $wp_filter;
+    foreach ( array( 'woocommerce_product_get_price', 'woocommerce_find_rates' ) as $hook ) {
+        if ( empty( $wp_filter[ $hook ] ) ) {
+            continue;
+        }
+        echo "&lt;!-- $hook\n";
+        foreach ( $wp_filter[ $hook ]-&gt;callbacks as $prioridad =&gt; $funciones ) {
+            foreach ( $funciones as $id =&gt; $f ) {
+                echo "   $prioridad: $id\n";
+            }
+        }
+        echo "--&gt;";
+    }
+} );</code></pre>
+
+      <p>En el código fuente de la página verás los dos plugins en la lista y con qué prioridad entra cada uno. El que tenga el número más alto es el que manda.</p>
+
+      <p><strong>Comprueba el ajuste de impuestos incluidos.</strong> En Ajustes, Impuestos, mira si «he introducido los precios con impuestos incluidos» está activado. Si lo está y tu plugin de mayorista trabaja en neto, ya tienes localizado el caso 2 sin buscar más.</p>
+
+      <p><strong>Haz un pedido de prueba de cada tipo.</strong> Uno nacional a minorista, uno nacional a mayorista con recargo, y uno intracomunitario con NIF-IVA válido. Compara base, cuota y total con lo que tu gestoría espera. Con tres pedidos sabes si el fallo es general o solo de un escenario, que es lo que de verdad acota el problema.</p>
+
+      <h2>Qué se puede hacer</h2>
+
+      <p>Hay tres salidas y ninguna es gratis.</p>
+
+      <p>La primera es <strong>coordinar las prioridades</strong>. Fuerzas que el fiscal corra después del de mayorista con un <code>add_filter</code> de prioridad alta en un plugin propio. Funciona, y se rompe en cuanto cualquiera de los dos publique una actualización que cambie sus números.</p>
+
+      <p>La segunda es <strong>configurar la tienda en neto</strong> y desactivar los precios con impuestos incluidos. Es lo correcto para una tienda mayorista de todas formas. Si además vendes a particulares, tendrás que revisar cómo se muestran los precios en la parte pública.</p>
+
+      <p>La tercera es <strong>usar un solo plugin</strong> que resuelva el descuento de grupo, la exención y el recargo en el mismo sitio. Entonces no hay orden que coordinar porque no hay dos funciones compitiendo.</p>
+
+      <p>Nosotros hacemos Entrepo, que es de los del tercer grupo, así que léelo sabiendo de dónde viene el consejo. Pero si tu montaje actual funciona, no lo cambies por esto: cambia solo si has reconocido tu caso en alguno de los tres de arriba.</p>
+
+      <blockquote>
+        <p>Una advertencia que no me voy a saltar: esto explica el mecanismo, no sustituye a tu asesoría. Quién tiene que llevar recargo y qué tipo se aplica lo decide tu gestoría. Lo que aquí se resuelve es que la tienda haga lo que ella diga.</p>
+      </blockquote>
+
+      <p>Si has llegado hasta aquí porque estás en medio del problema y quieres que alguien lo mire, <a href="../services.html">reviso el IVA de una tienda por un precio cerrado</a>. Y si prefieres arreglarlo tú, con los tres pedidos de prueba de arriba tienes casi todo lo que hace falta.</p>
+
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="../index.html">Honest Plugins</a> — WordPress y WooCommerce</p>
+    <p class="data"><a href="index.html">Guías</a> · <a href="../entrepo.html">Entrepo</a></p>
+  </div>
+</footer>
+
+<script src="../../assets/site.js"></script>
+</body>
+</html>

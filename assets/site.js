@@ -188,9 +188,26 @@
 
     select.value = actual;
 
+    /* Ruta dentro del idioma, conservando subcarpetas: de /es/guias/x.html
+       se queda con 'guias/x.html', para que cambiar de idioma no pierda la
+       página en la que estás. */
+    var resto_ruta = trozos.join('/') || 'index.html';
+    if (resto_ruta.indexOf('.') === -1) resto_ruta += '/index.html';
+
     select.addEventListener('change', function () {
       var destino = select.value;
-      window.location.href = base + '/' + (destino ? destino + '/' : '') + fichero;
+      var url = base + '/' + (destino ? destino + '/' : '') + resto_ruta;
+
+      /* No todo el contenido existe en los tres idiomas: los artículos, por
+         ejemplo, empiezan en uno solo. Si la página equivalente no existe,
+         se va a la portada de ese idioma en lugar de a un 404. */
+      var respaldo = base + '/' + (destino ? destino + '/' : '') + 'index.html';
+
+      if (!window.fetch) { window.location.href = url; return; }
+
+      fetch(url, { method: 'HEAD' })
+        .then(function (r) { window.location.href = r.ok ? url : respaldo; })
+        .catch(function () { window.location.href = respaldo; });
     });
   })();
 
