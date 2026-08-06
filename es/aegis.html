@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aegis Security — blindaje y detección de malware para WordPress | Honest Plugins</title>
+<meta name="description" content="Limitación de intentos de acceso, doble factor TOTP, blindaje, integridad del núcleo contra las sumas oficiales y escaneo de malware para WordPress. Informa de lo que encuentra y nunca borra un fichero.">
+<link rel="alternate" hreflang="en" href="https://honestplugins.github.io/aegis.html">
+<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/aegis.html">
+<link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/aegis.html">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://honestplugins.github.io/es/aegis.html#software",
+  "name": "Aegis Security",
+  "url": "https://honestplugins.github.io/es/aegis.html",
+  "applicationCategory": "SecurityApplication",
+  "applicationSubCategory": "Plugin de WordPress",
+  "operatingSystem": "WordPress",
+  "softwareVersion": "0.4.6",
+  "inLanguage": "es",
+  "publisher": { "@type": "Organization", "@id": "https://honestplugins.github.io/#org", "name": "Honest Plugins" },
+  "description": "Blindaje, integridad del núcleo y detección de malware para WordPress. Informa de lo que encuentra y nunca borra un fichero. Funcionando en sitios de clientes, pero todavía sin publicar."
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugins — inicio">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugins</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="entrepo.html">Entrepo</a>
+      <a href="malipo.html">Malipo</a>
+      <a href="aegis.html" class="is-current">Aegis</a>
+      <a href="services.html">Servicios</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="lang">
+        <select id="lang-select" aria-label="Idioma">
+          <option value="">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </span>
+      <a class="btn btn-ghost" href="#contact">Avisadme</a>
+    </div>
+  </div>
+</div>
+
+<div class="subnav">
+  <div class="shell">
+    <p class="here">Aegis Security</p>
+    <a href="#spec">Especificación</a>
+    <a href="#stance">Lo que no hará</a>
+    <a href="#contact">Disponibilidad</a>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Aegis Security</span></p>
+    <div class="hero" style="max-width:44rem">
+      <h1 class="up up-2">Informa de lo que encuentra. No <em>adivina</em>.</h1>
+      <p class="lede up up-3">
+        Blindaje, doble factor, integridad del núcleo y detección de malware para WordPress. Cada
+        fichero que señala es un fichero que te enseña — <b>Aegis nunca borra nada.</b> La decisión
+        se queda con quien es dueño del sitio.
+      </p>
+      <div class="hero-cta up up-4">
+        <span class="stamp on-dark pass">Funcionando en producción</span>
+        <span class="stamp on-dark build">Versión 0.4.6 · sin publicar</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="band-paper" id="spec">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Especificación</p>
+    <h2 class="sec-title rv">Diez módulos, sin dependencias externas</h2>
+
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Construido como herramienta de agencia para los sitios que mantenemos, y por eso se comporta como tal: no asume nada, todo se puede desactivar por separado, y tiene un interruptor de emergencia para el día en que el plugin de seguridad sea justo lo que está rompiendo tu web.</p>
+        <p class="meta">
+          <span>WordPress</span>
+          <span>Sin dependencias externas</span>
+          <span>Constante de emergencia</span>
+          <span>Versión 0.4.6</span>
+          <span>En sitios de clientes</span>
+        </p>
+      </div>
+      <dl class="spec">
+        <div><dt>Acceso</dt><dd>Limitación de intentos por IP, enumeración de usuarios bloqueada y URL de acceso oculta.</dd></div>
+        <div><dt>Doble factor</dt><dd>TOTP según la RFC 6238 — funciona con cualquier aplicación de autenticación estándar, sin ningún servicio de terceros de por medio.</dd></div>
+        <div><dt>Blindaje</dt><dd>XML-RPC, el editor de ficheros y la ejecución de PHP en subidas, más las cabeceras de seguridad. Cada cosa se activa por separado, ninguna se da por hecha.</dd></div>
+        <div><dt>Integridad</dt><dd>El núcleo de WordPress verificado fichero a fichero contra las sumas de comprobación oficiales de wordpress.org.</dd></div>
+        <div><dt>Detección</dt><dd>Escaneo por firmas disparado por subidas, actualizaciones y activación de plugins, diferido a cron para que la petición siga siendo rápida.</dd></div>
+        <div><dt>Cortafuegos</dt><dd>Inspección de peticiones en modo observación, para que veas qué habría bloqueado antes de que bloquee nada.</dd></div>
+        <div><dt>Informes</dt><dd>Registro de actividad con avisos por correo, más avisos de actualizaciones y vulnerabilidades de lo que tienes instalado de verdad.</dd></div>
+        <div><dt>Salida de emergencia</dt><dd>Una sola constante en wp-config desactiva el plugin entero, para cuando te has quedado fuera y necesitas la web ya.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band-paper-2" id="stance">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">La postura</p>
+    <h2 class="sec-title rv">Lo que no hará</h2>
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Un plugin de seguridad tiene más capacidad de romper un sitio que la mayoría de los ataques. Estos son los límites que respeta, a propósito.</p>
+      </div>
+      <dl class="spec">
+        <div><dt>No borra</dt><dd>Nunca elimina ni pone en cuarentena un fichero por su cuenta. Un falso positivo que borra un fichero del tema cuesta más de lo que habría costado el malware.</dd></div>
+        <div><dt>No ata</dt><dd>No necesita ningún servicio externo para funcionar. Nada llama a casa para tomar una decisión sobre tu sitio.</dd></div>
+        <div><dt>No bloquea en silencio</dt><dd>El cortafuegos arranca en modo observación. Ves qué habría parado antes de dejar que pare nada.</dd></div>
+        <div><dt>No mete miedo</dt><dd>Nada de banners rojos vendiendo una mejora. Un hallazgo se informa una vez, con el fichero y el motivo.</dd></div>
+      </dl>
+    </div>
+
+    <p class="caveat rv">
+      <b>Dónde está.</b> Aegis es la versión 0.4.6 y funciona en sitios de clientes en producción,
+      pero no se ha publicado y no ha pasado la revisión de WordPress.org. Trabajo conocido antes de
+      publicarlo: el cortafuegos todavía no inspecciona el cuerpo de las peticiones POST, y la
+      verificación de integridad cubre el núcleo de WordPress pero no los plugins ni los temas.
+    </p>
+  </div>
+</section>
+
+<section class="band-navy">
+  <div class="shell">
+    <p class="data sec-kicker rv">Cómo están hechos</p>
+    <h2 class="sec-title rv">Tres reglas que no se doblan</h2>
+    <div class="rule-grid">
+      <div class="rule-item rv rv-d1">
+        <p class="data">Alcance</p>
+        <h3>Menos funciones, todas funcionando</h3>
+        <p>La fiabilidad es la función. En seguridad más aún: una herramienta que acabas desactivando porque grita a cada rato no protege absolutamente nada.</p>
+      </div>
+      <div class="rule-item rv rv-d2">
+        <p class="data">Licencia</p>
+        <h3>Una licencia caducada nunca rompe una tienda</h3>
+        <p>Cuando la licencia caduca dejas de recibir actualizaciones y soporte. Nada de lo que ya estaba funcionando se apaga.</p>
+      </div>
+      <div class="rule-item rv rv-d3">
+        <p class="data">Transparencia</p>
+        <h3>Las carencias también se publican</h3>
+        <p>Las limitaciones de arriba están en esta página antes de que instales nada, no descubiertas después en producción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Disponibilidad</p>
+      <h2>No está a la venta — pero el servicio de limpieza sí</h2>
+      <p>Aegis todavía no se ha publicado, así que en esta página no hay nada que comprar. Si tu sitio ya ha sido comprometido, eso es otra conversación y una en la que puedo ayudarte hoy: limpiarlo, averiguar por dónde entraron, y blindarlo para que no vuelva a pasar.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Nombre</span><input type="text" name="name" required placeholder="Tu nombre"></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="tu@empresa.com"></label>
+      </div>
+      <label><span>Sobre qué</span>
+        <select name="product">
+          <option selected>Mi sitio ha sido comprometido</option>
+          <option>Aegis — avisadme cuando se publique</option>
+          <option>Blindar un sitio existente</option>
+          <option>Entrepo — mayorista e IVA</option>
+          <option>Otra cosa</option>
+        </select>
+      </label>
+      <label><span>Mensaje</span><textarea name="message" required placeholder="¿Qué está pasando, y cuándo lo notaste por primera vez?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Deja esto vacío<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Enviar mensaje</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Tu dirección se usa para responderte, nada más. Sin lista, sin secuencia.</p>
+      <noscript><p>Este formulario necesita JavaScript para enviarse.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="index.html">Honest Plugins</a> — WordPress y WooCommerce</p>
+    <p class="data"><a href="entrepo.html">Entrepo</a> · <a href="malipo.html">Malipo</a></p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
