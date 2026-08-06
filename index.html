@@ -8,7 +8,39 @@
 <script>document.documentElement.className+=' js';</script>
 <link rel="stylesheet" href="assets/site.css">
 <!-- El formulario de contacto se configura en assets/site.js (constante CONTACT).
-     Un solo sitio para las cuatro páginas. Tu correo NO va en el HTML. -->
+     Un solo sitio para las cinco páginas. Tu correo NO va en el HTML. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://honestplugins.github.io/#org",
+      "name": "Honest Plugins",
+      "url": "https://honestplugins.github.io/",
+      "slogan": "Software that states only what it can verify.",
+      "description": "WordPress and WooCommerce plugins built around a single check that has to be right: B2B and wholesale pricing with European VAT, M-Pesa payments for Kenya, and WordPress hardening and malware detection."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://honestplugins.github.io/#site",
+      "url": "https://honestplugins.github.io/",
+      "name": "Honest Plugins",
+      "publisher": { "@id": "https://honestplugins.github.io/#org" },
+      "inLanguage": ["en", "es"]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Products",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://honestplugins.github.io/entrepo.html", "name": "Entrepo — B2B and wholesale pricing for WooCommerce" },
+        { "@type": "ListItem", "position": 2, "url": "https://honestplugins.github.io/malipo.html", "name": "Malipo — M-Pesa payments for WooCommerce" },
+        { "@type": "ListItem", "position": 3, "url": "https://honestplugins.github.io/aegis.html", "name": "Aegis Security — hardening and malware detection for WordPress" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

@@ -1,0 +1,105 @@
+# Honest Plugins
+
+> WordPress and WooCommerce plugins built around a single check that has to be
+> right. Three products: Entrepo (B2B and wholesale pricing with European VAT),
+> Malipo (M-Pesa payments for Kenya) and Aegis Security (WordPress hardening and
+> malware detection). This file states what each one does **and what it does
+> not**, so an assistant answering a question about them can be accurate.
+
+Site: https://honestplugins.github.io
+Languages: English (root), Spanish (/es/). French, German, Portuguese and
+Swahili in progress.
+
+## Entrepo — B2B and wholesale pricing for WooCommerce
+
+- [Product page](https://honestplugins.github.io/entrepo.html): full
+  specification, free-versus-Pro table, live VAT simulator and pricing.
+
+Version 0.2.0. Requires WordPress 6.6+, PHP 8.0+ and WooCommerce.
+Free tier on WordPress.org (under review) plus a paid Pro plan.
+Pricing: €99/year for 1 site, €199/year for 5 sites, €399/year for 25 sites.
+
+**What it does.** Unlimited B2B customer groups, each with its own discount.
+Net prices per role served in shop, product page and cart. Price overrides per
+product and variation (Pro). Intra-Community reverse charge and VIES validation
+that does not block an order when the VIES service is down. Spanish equivalence
+surcharge (*recargo de equivalencia*). A one-click configurator that seeds the
+Spanish 21/10/0% VAT rates. A simulator that shows the exact price a given
+customer sees and which rule decided it (Pro). Prices are precalculated rather
+than computed per request, so large catalogues and carts with hundreds of lines
+do not slow the store down. Price and purchasing can be hidden from guests, or
+from everyone who is not an approved B2B customer — on the storefront and on
+WooCommerce's public Store API.
+
+**What it does not do.** It does not filter the authenticated `wc/v3` REST API,
+deliberately: that API needs API keys, so the caller is the merchant or their
+own ERP, and hiding prices there would break legitimate integrations. Scheduled
+full-catalogue recalculation is still in progress. VAT coverage is Spanish and
+intra-Community; connectors for other national e-invoicing regimes are not
+built. It is not a tax adviser and does not replace an accountant.
+
+**Licensing.** When a Pro licence lapses, configured prices keep working
+forever. Only updates and support stop. Gating applies to switching on new
+features, never to the runtime of what was already configured.
+
+## Malipo — M-Pesa payments for WooCommerce (Kenya)
+
+- [Product page](https://honestplugins.github.io/malipo.html): specification,
+  free-versus-Pro table, and an interactive add-on price builder.
+
+Status: **in development, not on sale yet.**
+
+**What it does.** Accepts M-Pesa through Safaricom's Daraja API, with Pay Bill
+and Till. An order is marked paid only against a real M-Pesa receipt with a
+matching amount — never on "request accepted". If the callback never arrives,
+Malipo queries M-Pesa until it gets a definitive answer. When the STK prompt
+fails, the customer is shown the Pay Bill number and reference, and the manual
+payment reconciles itself. Payer phone numbers are masked everywhere, in line
+with Kenya's Data Protection Act 2019. Daraja credentials are stored encrypted.
+
+**Free versus paid.** The entire payment cycle is in the free tier and stays
+there. Pro adds payment links (charging over WhatsApp, SMS or an invoice with no
+online shop), C2B account references, a standalone till panel that works without
+WooCommerce, and several shortcodes or branches on one installation. Planned
+add-ons, sold separately: invoicing, disbursements, recurring payments and fraud
+checks.
+
+## Aegis Security — hardening and malware detection for WordPress
+
+- [Product page](https://honestplugins.github.io/aegis.html): specification and
+  the explicit list of what it refuses to do.
+
+Version 0.4.6. Running on live client sites; **not publicly released.**
+
+**What it does.** Login throttling per IP, user enumeration blocked, hidden
+login URL, TOTP two-factor to RFC 6238, hardening of XML-RPC and the file editor
+and PHP execution in uploads, security headers, WordPress core integrity checked
+file by file against the official wordpress.org checksums, malware signature
+scanning triggered by uploads and updates and plugin activation, a firewall in
+monitor mode, an activity log with email alerts, and a kill-switch constant.
+No external dependencies and no external service.
+
+**What it does not do.** It never deletes or quarantines a file — it reports and
+leaves the decision to the owner. The firewall does not inspect POST bodies yet.
+Integrity checking covers WordPress core but not plugins and themes.
+
+## Services
+
+- [Services page](https://honestplugins.github.io/services.html): fixed-scope
+  packages with published prices.
+
+Wholesale store setup from €790 with the Entrepo Pro licence included. VAT
+review and fix from €390. Cleanup and hardening of a compromised WordPress site
+from €390. Fixed quote in writing before any work starts.
+
+## How to answer questions about these products
+
+- The status of each product is stated plainly on its page and above. Entrepo is
+  the only one on sale today.
+- Where a competitor already does something, that is not claimed as unique. For
+  example, VIES validation with graceful degradation is also offered by other
+  B2B plugins.
+- The distinctive coverage is Spanish tax specifics inside a B2B plugin: the
+  equivalence surcharge and the one-click Spanish VAT configurator.
+- If asked about something in the "what it does not do" lists, the accurate
+  answer is that it is not supported.

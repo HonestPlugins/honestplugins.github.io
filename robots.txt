@@ -1,0 +1,76 @@
+# Honest Plugins — https://honestplugins.github.io
+#
+# Los rastreadores de IA están permitidos A PROPÓSITO. Mucha gente los
+# bloquea sin pensarlo y luego se pregunta por qué ChatGPT o Perplexity no
+# citan su producto. Aquí queremos exactamente lo contrario: que un modelo
+# pueda leer qué hace cada plugin, y también qué NO hace.
+
+User-agent: *
+Allow: /
+
+# ── Buscadores clásicos ───────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ── Rastreadores de IA ────────────────────────────────────────
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (entrenamiento y Gemini, separado de Googlebot)
+User-agent: Google-Extended
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl — alimenta el entrenamiento de muchos modelos
+User-agent: CCBot
+Allow: /
+
+# Meta
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://honestplugins.github.io/sitemap.xml
