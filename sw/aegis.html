@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="sw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aegis Security — kuimarisha na kugundua programu hasidi kwa WordPress | Honest Plugins</title>
+<meta name="description" content="Kuzuia majaribio ya kuingia, uthibitishaji wa hatua mbili wa TOTP, kuimarisha usalama, kuhakiki uadilifu wa msingi dhidi ya rekodi rasmi, na kuchunguza programu hasidi kwa WordPress. Inaripoti inachokipata na kamwe haifuti faili.">
+<link rel="alternate" hreflang="en" href="https://honestplugins.github.io/aegis.html">
+<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/aegis.html">
+<link rel="alternate" hreflang="sw" href="https://honestplugins.github.io/sw/aegis.html">
+<link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/aegis.html">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://honestplugins.github.io/sw/aegis.html#software",
+  "name": "Aegis Security",
+  "url": "https://honestplugins.github.io/sw/aegis.html",
+  "applicationCategory": "SecurityApplication",
+  "applicationSubCategory": "Programu-jalizi ya WordPress",
+  "operatingSystem": "WordPress",
+  "softwareVersion": "0.4.6",
+  "inLanguage": "sw",
+  "publisher": { "@type": "Organization", "@id": "https://honestplugins.github.io/#org", "name": "Honest Plugins" },
+  "description": "Kuimarisha usalama, kuhakiki uadilifu wa msingi na kugundua programu hasidi kwa WordPress. Inaripoti inachokipata na kamwe haifuti faili. Inafanya kazi kwenye tovuti za wateja lakini bado haijatolewa hadharani."
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugins — mwanzo">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugins</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Mwanzo</a>
+      <a href="entrepo.html">Entrepo</a>
+      <a href="attesta.html">Attesta</a>
+      <a href="aegis.html" class="is-current">Aegis</a>
+      <a href="services.html">Huduma</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="lang">
+        <select id="lang-select" aria-label="Lugha">
+          <option value="">English</option>
+          <option value="es">Español</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </span>
+      <a class="btn btn-ghost" href="#contact">Nijulishe</a>
+    </div>
+  </div>
+</div>
+
+<div class="subnav">
+  <div class="shell">
+    <p class="here">Aegis Security</p>
+    <a href="#spec">Maelezo</a>
+    <a href="#stance">Isichokifanya</a>
+    <a href="#contact">Upatikanaji</a>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Aegis Security</span></p>
+    <div class="hero" style="max-width:44rem">
+      <h1 class="up up-2">Inaripoti inachokipata. Haitegemei <em>kubahatisha</em>.</h1>
+      <p class="lede up up-3">
+        Kuimarisha usalama, uthibitishaji wa hatua mbili, uadilifu wa msingi na kugundua programu
+        hasidi kwa WordPress. Kila faili inayoiashiria ni faili inayokuonyesha — <b>Aegis kamwe
+        haifuti chochote.</b> Uamuzi unabaki kwa mwenye tovuti.
+      </p>
+      <div class="hero-cta up up-4">
+        <span class="stamp on-dark pass">Inafanya kazi kwa wateja</span>
+        <span class="stamp on-dark build">Toleo 0.4.6 · bado halijatolewa</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="band-paper" id="spec">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Maelezo</p>
+    <h2 class="sec-title rv">Moduli kumi, bila kutegemea huduma za nje</h2>
+
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Ilijengwa kama chombo cha wakala kwa tovuti tunazozitunza, na ndiyo sababu inafanya kazi hivyo: haidhani chochote, kila kitu kinaweza kuzimwa peke yake, na ina kitufe cha dharura kwa siku ambayo programu-jalizi ya usalama ndiyo inayovunja tovuti yako.</p>
+        <p class="meta">
+          <span>WordPress</span>
+          <span>Bila kutegemea huduma za nje</span>
+          <span>Kitufe cha dharura</span>
+          <span>Toleo 0.4.6</span>
+          <span>Kwenye tovuti za wateja</span>
+        </p>
+      </div>
+      <dl class="spec">
+        <div><dt>Kuingia</dt><dd>Kuzuia majaribio ya kuingia kwa kila IP, kuzuia kuorodheshwa kwa watumiaji, na anwani ya kuingia iliyofichwa.</dd></div>
+        <div><dt>Hatua mbili</dt><dd>TOTP kwa mujibu wa RFC 6238 — inafanya kazi na programu yoyote ya kawaida ya uthibitishaji, bila huduma ya mtu wa tatu.</dd></div>
+        <div><dt>Kuimarisha</dt><dd>XML-RPC, kihariri cha faili na uendeshaji wa PHP kwenye faili zilizopakiwa, pamoja na vichwa vya usalama. Kila kimoja kinawashwa peke yake, hakuna kinachodhaniwa.</dd></div>
+        <div><dt>Uadilifu</dt><dd>Msingi wa WordPress unahakikiwa faili kwa faili dhidi ya rekodi rasmi za wordpress.org.</dd></div>
+        <div><dt>Ugunduzi</dt><dd>Uchunguzi wa alama unaoanzishwa na upakiaji, masasisho na kuwasha programu-jalizi, ukiahirishwa kwenda cron ili ombi libaki la haraka.</dd></div>
+        <div><dt>Ukuta wa moto</dt><dd>Ukaguzi wa maombi ukiwa katika hali ya kuangalia tu, ili uone kile ambacho kingezuiliwa kabla hakijazuia chochote.</dd></div>
+        <div><dt>Ripoti</dt><dd>Kumbukumbu ya shughuli yenye taarifa kwa barua pepe, pamoja na taarifa za masasisho na udhaifu wa vile ulivyosakinisha kweli.</dd></div>
+        <div><dt>Njia ya dharura</dt><dd>Mstari mmoja katika wp-config unazima programu-jalizi nzima, kwa siku uliyofungiwa nje na unahitaji tovuti irudi sasa hivi.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band-paper-2" id="stance">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Msimamo</p>
+    <h2 class="sec-title rv">Isichokifanya</h2>
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Programu-jalizi ya usalama ina uwezo mkubwa wa kuvunja tovuti kuliko mashambulizi mengi. Hii ndiyo mipaka inayoishika, kwa makusudi.</p>
+      </div>
+      <dl class="spec">
+        <div><dt>Haifuti</dt><dd>Kamwe haiondoi wala kuweka faili karantini yenyewe. Kosa la uwongo linalofuta faili ya mandhari linagharimu zaidi kuliko programu hasidi yenyewe.</dd></div>
+        <div><dt>Haikufungi</dt><dd>Haihitaji huduma yoyote ya nje ili kufanya kazi. Hakuna kinachopiga simu nyumbani kuamua jambo kuhusu tovuti yako.</dd></div>
+        <div><dt>Haizuii kimyakimya</dt><dd>Ukuta wa moto huanza katika hali ya kuangalia tu. Unaona kile ambacho kingesimamishwa kabla hujakiruhusu kusimamisha chochote.</dd></div>
+        <div><dt>Haitishi</dt><dd>Hakuna mabango mekundu yakikuuzia toleo la juu. Jambo linaloonekana linaripotiwa mara moja, na faili yake na sababu yake.</dd></div>
+      </dl>
+    </div>
+
+    <p class="caveat rv">
+      <b>Ilipofikia.</b> Aegis ni toleo 0.4.6 na inafanya kazi kwenye tovuti za wateja, lakini
+      haijatolewa hadharani wala haijapitia ukaguzi wa WordPress.org. Kazi inayojulikana kabla ya
+      kutolewa: ukuta wa moto bado haukagui mwili wa maombi ya POST, na ukaguzi wa uadilifu unahusu
+      msingi wa WordPress lakini si programu-jalizi wala mandhari.
+    </p>
+  </div>
+</section>
+
+<section class="band-navy">
+  <div class="shell">
+    <p class="data sec-kicker rv">Jinsi zilivyojengwa</p>
+    <h2 class="sec-title rv">Kanuni tatu zisizovunjika</h2>
+    <div class="rule-grid">
+      <div class="rule-item rv rv-d1">
+        <p class="data">Upeo</p>
+        <h3>Vipengele vichache, vyote vikifanya kazi</h3>
+        <p>Uaminifu wa kufanya kazi ndio kipengele chenyewe. Kwenye usalama hasa: chombo unachokizima kwa sababu kinapiga kelele kila mara hakilindi chochote.</p>
+      </div>
+      <div class="rule-item rv rv-d2">
+        <p class="data">Leseni</p>
+        <h3>Leseni iliyoisha kamwe haivunji duka</h3>
+        <p>Leseni inapoisha unaacha kupokea masasisho na msaada. Kitu chochote kilichokuwa kikifanya kazi hakizimwi.</p>
+      </div>
+      <div class="rule-item rv rv-d3">
+        <p class="data">Uwazi</p>
+        <h3>Mapungufu nayo yanatangazwa</h3>
+        <p>Mipaka iliyo hapo juu ipo kwenye ukurasa huu kabla hujasakinisha chochote, si kugunduliwa baadaye ukiwa tayari kazini.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Upatikanaji</p>
+      <h2>Haiuzwi — lakini huduma ya kusafisha inapatikana</h2>
+      <p>Aegis bado haijatolewa, kwa hiyo hakuna cha kununua kwenye ukurasa huu. Kama tovuti yako tayari imevamiwa, hilo ni mazungumzo mengine na ni jambo ninaloweza kukusaidia leo: kuisafisha, kubaini walivyoingia, na kuiimarisha isirudie.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Jina</span><input type="text" name="name" required placeholder="Jina lako"></label>
+        <label><span>Barua pepe</span><input type="email" name="email" required placeholder="wewe@kampuni.com"></label>
+      </div>
+      <label><span>Kuhusu nini</span>
+        <select name="product">
+          <option selected>Tovuti yangu imevamiwa</option>
+          <option>Aegis — nijulishe itakapotolewa</option>
+          <option>Kuimarisha tovuti iliyopo</option>
+          <option>Entrepo — jumla na VAT</option>
+          <option>Jambo lingine</option>
+        </select>
+      </label>
+      <label><span>Ujumbe</span><textarea name="message" required placeholder="Nini kinaendelea, na uliligundua lini kwa mara ya kwanza?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Acha hapa wazi<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Tuma ujumbe</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Anwani yako inatumika kukujibu tu, si zaidi. Hakuna orodha, hakuna mfululizo wa matangazo.</p>
+      <noscript><p>Fomu hii inahitaji JavaScript ili kutuma.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="index.html">Honest Plugins</a> — WordPress na WooCommerce</p>
+    <p class="data"><a href="entrepo.html">Entrepo</a> · <a href="attesta.html">Attesta</a></p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

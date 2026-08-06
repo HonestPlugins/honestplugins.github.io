@@ -83,6 +83,28 @@
       errorServidor: '. Inténtalo otra vez en un momento.',
       errorRed: 'No se ha podido contactar con el servidor. Comprueba tu conexión e inténtalo de nuevo.',
       sinConfigurar: 'Este formulario aún no está conectado. Pon la clave de acceso en assets/site.js.'
+    },
+    sw: {
+      selloExport: 'Nje ya EU · 0 %',
+      selloNacional: 'Ndani ya nchi · 21 %',
+      selloInversion: 'Mnunuzi analipa VAT · 0 %',
+      selloSinNif: 'Hakuna namba ya VAT · ',
+      selloOss: 'OSS · ',
+      porExport: 'Mauzo nje ya Umoja wa Ulaya. <b>Hakuna VAT inayotozwa.</b>',
+      porNacionalB2B: 'Mteja wa biashara katika nchi ile ile ya duka. <b>Sheria ya mnunuzi kulipa VAT haitumiki ndani ya nchi moja</b>, kwa hiyo VAT ya kawaida ya Uhispania inatozwa.',
+      porNacionalB2C: 'Mnunuzi wa kawaida katika nchi ya duka. <b>VAT ya ndani inatumika</b>, na bei inaonyeshwa ikiwa na kodi ndani yake.',
+      porInversion: 'Mteja wa biashara katika nchi nyingine ya EU mwenye namba ya VAT iliyothibitishwa na VIES. <b>Mauzo ndani ya EU — mnunuzi ndiye analipa VAT.</b>',
+      porSinNif: 'Mteja wa biashara katika nchi nyingine ya EU, lakini <b>hakuna namba ya VAT</b>, kwa hiyo msamaha hauwezi kutumika. Anahesabiwa kama mnunuzi wa kawaida: VAT ya nchi anakoenda.',
+      porOss: 'Mnunuzi wa kawaida katika nchi nyingine ya EU. <b>VAT ya nchi anakoenda</b> kwa mujibu wa kanuni za One-Stop Shop.',
+      etiquetaIva: 'VAT',
+      soloPro: 'Pro pekee',
+      unAddon: ' nyongeza',
+      variosAddons: ' nyongeza',
+      enviando: 'Inatuma…',
+      enviado: 'Asante — ujumbe wako umetumwa. Utapata jibu la kweli, mara nyingi ndani ya siku moja.',
+      errorServidor: '. Tafadhali jaribu tena baada ya muda mfupi.',
+      errorRed: 'Imeshindikana kufikia seva. Angalia mtandao wako kisha ujaribu tena.',
+      sinConfigurar: 'Fomu hii bado haijaunganishwa. Weka ufunguo katika assets/site.js.'
     }
   };
 
