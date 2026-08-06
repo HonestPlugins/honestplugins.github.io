@@ -28,6 +28,70 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ══════════════════════════════════════════════════════════════
+     TEXTOS QUE GENERA EL JAVASCRIPT
+     El HTML lo traduce cada página; esto es lo que se escribe en
+     tiempo de ejecución (simulador, configurador, formulario) y no
+     estaría traducido si no viviera aquí.
+
+     Para añadir un idioma: copiar el bloque 'en', traducirlo, y
+     ponerlo bajo su código. Lo que falte cae a inglés.
+     ══════════════════════════════════════════════════════════════ */
+  var IDIOMA = (document.documentElement.lang || 'en').slice(0, 2);
+
+  var TEXTOS = {
+    en: {
+      selloExport: 'Export · 0 %',
+      selloNacional: 'Domestic · 21 %',
+      selloInversion: 'Reverse charge · 0 %',
+      selloSinNif: 'No VAT ID · ',
+      selloOss: 'OSS · ',
+      porExport: 'Sale outside the EU. <b>Export — no VAT charged.</b>',
+      porNacionalB2B: 'Business customer in the same country as the store. <b>Reverse charge does not apply domestically</b>, so normal Spanish VAT is charged.',
+      porNacionalB2C: 'Consumer in the store’s own country. <b>Domestic VAT applies</b>, shown inclusive of tax.',
+      porInversion: 'Business customer in another member state with a VAT number validated against VIES. <b>Intra-Community supply — reverse charge.</b> The buyer accounts for the VAT.',
+      porSinNif: 'Business customer in another member state, but <b>no VAT number given</b>, so the exemption cannot be applied. Treated as a consumer: destination-country VAT.',
+      porOss: 'Consumer in another member state. <b>Destination-country VAT</b> under the One-Stop Shop rules.',
+      etiquetaIva: 'VAT',
+      soloPro: 'Pro only',
+      unAddon: ' add-on',
+      variosAddons: ' add-ons',
+      enviando: 'Sending…',
+      enviado: 'Thanks — your message has been sent. You will get a real answer, usually within a day.',
+      errorServidor: '. Please try again in a moment.',
+      errorRed: 'Could not reach the server. Check your connection and try again.',
+      sinConfigurar: 'This form is not connected yet. Set the access key in assets/site.js.'
+    },
+    es: {
+      selloExport: 'Exportación · 0 %',
+      selloNacional: 'Nacional · 21 %',
+      selloInversion: 'Inversión del sujeto pasivo · 0 %',
+      selloSinNif: 'Sin NIF-IVA · ',
+      selloOss: 'OSS · ',
+      porExport: 'Venta fuera de la UE. <b>Exportación — no se repercute IVA.</b>',
+      porNacionalB2B: 'Cliente empresa en el mismo país que la tienda. <b>La inversión del sujeto pasivo no aplica en operaciones nacionales</b>, así que se repercute el IVA español normal.',
+      porNacionalB2C: 'Consumidor en el país de la propia tienda. <b>Se aplica el IVA nacional</b>, mostrado con impuestos incluidos.',
+      porInversion: 'Cliente empresa en otro estado miembro con NIF-IVA validado en VIES. <b>Entrega intracomunitaria — inversión del sujeto pasivo.</b> El IVA lo liquida el comprador.',
+      porSinNif: 'Cliente empresa en otro estado miembro, pero <b>sin NIF-IVA</b>, así que no se puede aplicar la exención. Se trata como consumidor: IVA del país de destino.',
+      porOss: 'Consumidor en otro estado miembro. <b>IVA del país de destino</b> según las reglas de la ventanilla única (OSS).',
+      etiquetaIva: 'IVA',
+      soloPro: 'Solo Pro',
+      unAddon: ' añadido',
+      variosAddons: ' añadidos',
+      enviando: 'Enviando…',
+      enviado: 'Gracias — tu mensaje se ha enviado. Recibirás una respuesta de verdad, normalmente en un día.',
+      errorServidor: '. Inténtalo otra vez en un momento.',
+      errorRed: 'No se ha podido contactar con el servidor. Comprueba tu conexión e inténtalo de nuevo.',
+      sinConfigurar: 'Este formulario aún no está conectado. Pon la clave de acceso en assets/site.js.'
+    }
+  };
+
+  var T = TEXTOS[IDIOMA] || TEXTOS.en;
+  /* Rellena con inglés cualquier clave que falte en una traducción parcial. */
+  Object.keys(TEXTOS.en).forEach(function (k) {
+    if (typeof T[k] === 'undefined') T[k] = TEXTOS.en[k];
+  });
+
   /* ── 1. Revelado al entrar en pantalla ────────────────────── */
   (function reveals() {
     var items = document.querySelectorAll('.rv');
@@ -158,8 +222,20 @@
       GB: { label: 'United Kingdom', eu: false, domestic: false, rate: 0 }
     };
 
+    /* El euro no se escribe igual en todos los idiomas: en inglés va
+       delante y con punto decimal (€100.00); en español, francés, alemán
+       y portugués va detrás, con espacio duro y coma (100,00 €). Se
+       decide por el lang del documento, así que cada traducción lo hereda
+       sin tocar nada. */
+    var LANG = (document.documentElement.lang || 'en').slice(0, 2);
+    var SIMBOLO_DELANTE = ['en', 'sw'].indexOf(LANG) !== -1;
+
     var euro = function (n) {
-      return '€' + n.toFixed(2).replace('.', ',');
+      var fijo = n.toFixed(2);
+      if (SIMBOLO_DELANTE) {
+        return '€' + fijo;
+      }
+      return fijo.replace('.', ',') + ' €';
     };
 
     var els = {
@@ -194,33 +270,31 @@
 
       if (!c.eu) {
         rate = 0;
-        why = 'Sale outside the EU. <b>Export — no VAT charged.</b>';
-        stampClass = 'stamp pass'; stampText = 'Export · 0 %';
+        why = T.porExport;
+        stampClass = 'stamp pass'; stampText = T.selloExport;
       } else if (c.domestic) {
         rate = c.rate;
-        why = g.b2b
-          ? 'Business customer in the same country as the store. <b>Reverse charge does not apply domestically</b>, so normal Spanish VAT is charged.'
-          : 'Consumer in the store\'s own country. <b>Domestic VAT applies</b>, shown inclusive of tax.';
-        stampClass = 'stamp wait'; stampText = 'Domestic · 21 %';
+        why = g.b2b ? T.porNacionalB2B : T.porNacionalB2C;
+        stampClass = 'stamp wait'; stampText = T.selloNacional;
       } else if (g.b2b && hasVat) {
         rate = 0;
-        why = 'Business customer in another member state with a VAT number validated against VIES. <b>Intra-Community supply — reverse charge.</b> The buyer accounts for the VAT.';
-        stampClass = 'stamp pass'; stampText = 'Reverse charge · 0 %';
+        why = T.porInversion;
+        stampClass = 'stamp pass'; stampText = T.selloInversion;
       } else if (g.b2b) {
         rate = c.rate;
-        why = 'Business customer in another member state, but <b>no VAT number given</b>, so the exemption cannot be applied. Treated as a consumer: destination-country VAT.';
-        stampClass = 'stamp wait'; stampText = 'No VAT ID · ' + Math.round(c.rate * 100) + ' %';
+        why = T.porSinNif;
+        stampClass = 'stamp wait'; stampText = T.selloSinNif + Math.round(c.rate * 100) + ' %';
       } else {
         rate = c.rate;
-        why = 'Consumer in another member state. <b>Destination-country VAT</b> under the One-Stop Shop rules.';
-        stampClass = 'stamp wait'; stampText = 'OSS · ' + Math.round(c.rate * 100) + ' %';
+        why = T.porOss;
+        stampClass = 'stamp wait'; stampText = T.selloOss + Math.round(c.rate * 100) + ' %';
       }
 
       var vat = net * rate;
 
       els.discount.textContent = g.off ? '− ' + euro(LIST * g.off) + '  (' + Math.round(g.off * 100) + ' %)' : '—';
       els.net.textContent = euro(net);
-      els.vatLabel.textContent = 'VAT (' + (rate * 100).toFixed(0) + ' %)';
+      els.vatLabel.textContent = T.etiquetaIva + ' (' + (rate * 100).toFixed(0) + ' %)';
       els.vat.textContent = rate ? euro(vat) : euro(0);
       els.total.textContent = euro(net + vat);
       els.why.innerHTML = why;
@@ -259,13 +333,13 @@
 
       /* trampa antispam: si viene rellena, es un bot. Fingimos éxito. */
       if (form.querySelector('input[name="botcheck"]').value) {
-        say('Thanks — your message has been sent.', 'ok');
+        say(T.enviado, 'ok');
         form.reset();
         return;
       }
 
       if (!configured) {
-        say('This form is not connected yet. Set the access key in assets/site.js.', 'bad');
+        say(T.sinConfigurar, 'bad');
         return;
       }
 
@@ -275,7 +349,7 @@
       delete data.botcheck;
 
       button.disabled = true;
-      say('Sending…');
+      say(T.enviando);
 
       fetch(CONTACT.ENDPOINT, {
         method: 'POST',
@@ -286,13 +360,13 @@
         .then(function (r) {
           if (r.success) {
             form.reset();
-            say('Thanks — your message has been sent. You will get a real answer, usually within a day.', 'ok');
+            say(T.enviado, 'ok');
           } else {
-            say((r.message || 'Something went wrong') + '. Please try again in a moment.', 'bad');
+            say((r.message || 'Error') + T.errorServidor, 'bad');
           }
         })
         .catch(function () {
-          say('Could not reach the server. Check your connection and try again.', 'bad');
+          say(T.errorRed, 'bad');
         })
         .then(function () { button.disabled = false; });
     });
@@ -341,8 +415,8 @@
 
       rows.replaceChildren(frag);
       countEl.textContent = picked.length === 0
-        ? 'Pro only'
-        : picked.length + (picked.length === 1 ? ' add-on' : ' add-ons');
+        ? T.soloPro
+        : picked.length + (picked.length === 1 ? T.unAddon : T.variosAddons);
 
       var prev = Number(totalEl.dataset.value || total);
       totalEl.dataset.value = total;

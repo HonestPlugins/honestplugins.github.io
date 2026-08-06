@@ -11,6 +11,15 @@
   <url>
     <loc>https://honestplugins.github.io/entrepo.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/entrepo.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/entrepo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/entrepo.html"/>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://honestplugins.github.io/es/entrepo.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://honestplugins.github.io/entrepo.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/entrepo.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/entrepo.html"/>
     <lastmod>2026-08-06</lastmod>
     <priority>0.8</priority>

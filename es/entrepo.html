@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrepo — precios mayoristas y B2B para WooCommerce | Honest Plugins</title>
+<meta name="description" content="Precios netos por grupo de cliente para WooCommerce, con inversión del sujeto pasivo, validación VIES y recargo de equivalencia. Versión gratuita completa y Pro desde 99 € al año.">
+<link rel="alternate" hreflang="en" href="https://honestplugins.github.io/entrepo.html">
+<link rel="alternate" hreflang="es" href="https://honestplugins.github.io/es/entrepo.html">
+<link rel="alternate" hreflang="x-default" href="https://honestplugins.github.io/entrepo.html">
+<script>document.documentElement.className+=' js';</script>
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://honestplugins.github.io/es/entrepo.html#software",
+  "name": "Entrepo",
+  "url": "https://honestplugins.github.io/es/entrepo.html",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Plugin de WooCommerce",
+  "operatingSystem": "WordPress 6.6 o superior, PHP 8.0 o superior, WooCommerce",
+  "softwareVersion": "0.2.0",
+  "inLanguage": "es",
+  "publisher": { "@type": "Organization", "@id": "https://honestplugins.github.io/#org", "name": "Honest Plugins" },
+  "description": "Precios mayoristas y B2B para WooCommerce: precios netos por grupo de cliente, con inversión del sujeto pasivo, validación VIES, recargo de equivalencia y configurador del IVA español de un clic. Si la licencia caduca, los precios configurados siguen funcionando.",
+  "offers": [
+    { "@type": "Offer", "name": "Gratis", "price": "0", "priceCurrency": "EUR", "description": "Una tienda mayorista completa y funcional. Ni prueba ni demo." },
+    { "@type": "Offer", "name": "Pro — 1 sitio", "price": "99", "priceCurrency": "EUR", "url": "https://checkout.freemius.com/plugin/35029/plan/59993/licenses/1/", "description": "Un año de actualizaciones y soporte para una tienda." },
+    { "@type": "Offer", "name": "Pro — 5 sitios", "price": "199", "priceCurrency": "EUR", "url": "https://checkout.freemius.com/plugin/35029/plan/59993/licenses/5/", "description": "La misma licencia Pro en cinco tiendas." },
+    { "@type": "Offer", "name": "Agencia — 25 sitios", "price": "399", "priceCurrency": "EUR", "url": "https://checkout.freemius.com/plugin/35029/plan/59993/licenses/25/", "description": "Veinticinco tiendas bajo una licencia, con soporte prioritario." }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="shell">
+    <a class="lockup" href="index.html">
+      <svg class="mark" viewBox="0 0 64 74" role="img" aria-label="Honest Plugins — inicio">
+        <defs><clipPath id="hp"><path d="M12 10h40a4 4 0 0 1 4 4v25c0 14-10 22-24 29C18 61 8 53 8 39V14a4 4 0 0 1 4-4Z"/></clipPath></defs>
+        <rect x="19" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <rect x="39.5" y="0" width="5.5" height="12" rx="2.75" fill="#2A5580"/>
+        <g clip-path="url(#hp)">
+          <rect x="0" y="0" width="32" height="74" fill="#2A5580"/>
+          <rect x="32" y="0" width="32" height="74" fill="#1C8DF2"/>
+          <circle cx="22" cy="28" r="4.5" fill="#1C8DF2" opacity="0.55"/>
+          <circle cx="27" cy="48" r="3" fill="#1C8DF2" opacity="0.4"/>
+        </g>
+        <path d="M17 36.5 26.5 46 47 25.5" fill="none" stroke="#5CC52F" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <p class="wordmark">Honest <b>Plugins</b></p>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="entrepo.html" class="is-current">Entrepo</a>
+      <a href="malipo.html">Malipo</a>
+      <a href="aegis.html">Aegis</a>
+      <a href="services.html">Servicios</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="lang">
+        <select id="lang-select" aria-label="Idioma">
+          <option value="">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </span>
+      <a class="btn btn-solid" href="#pricing">Comprar Pro</a>
+    </div>
+  </div>
+</div>
+
+<div class="subnav">
+  <div class="shell">
+    <p class="here">Entrepo</p>
+    <a href="#simulator">Simulador</a>
+    <a href="#spec">Especificación</a>
+    <a href="#compare">Gratis o Pro</a>
+    <a href="#pricing">Precios</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</div>
+
+<header class="stage short">
+  <div class="shell">
+    <p class="data crumb up up-1"><a href="index.html">Honest Plugins</a> <span>/</span> <span style="color:var(--blue)">Entrepo</span></p>
+    <div class="hero" style="max-width:44rem">
+      <h1 class="up up-2">Precios mayoristas con el <em>IVA</em> español dentro.</h1>
+      <p class="lede up up-3">
+        Precios netos por grupo de cliente para WooCommerce, con inversión del sujeto pasivo,
+        validación VIES, recargo de equivalencia y un configurador de los tipos de IVA españoles
+        de un clic. <b>Y un panel que te dice qué regla ha fijado el precio.</b>
+      </p>
+      <div class="hero-cta up up-4">
+        <span class="stamp on-dark wait">Versión gratuita en revisión en WordPress.org</span>
+        <span class="stamp on-dark build">Versión 0.2.0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ SIMULADOR ═════════════════════════════════════════════ -->
+<section class="band-paper" id="simulator">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Prueba el simulador de Pro</p>
+    <h2 class="sec-title rv">¿Qué precio verá este cliente, y por qué?</h2>
+    <p class="sec-sub on-paper rv">
+      Esta es la pregunta para la que existe el panel de administración, y es la pantalla estrella
+      de Entrepo Pro. Cambia el cliente aquí abajo y mira cómo cambian el precio y la regla que lo
+      ha decidido. La lógica fiscal es la real — sobre una tarifa de 100,00 € netos.
+    </p>
+
+    <div class="sim rv" id="sim">
+      <div class="sim-controls">
+        <div class="field">
+          <p class="data">Grupo de cliente</p>
+          <div class="choice">
+            <label><input type="radio" name="group" value="retail"><span>Minorista (B2C)</span></label>
+            <label><input type="radio" name="group" value="wholesale" checked><span>Mayorista −20 %</span></label>
+            <label><input type="radio" name="group" value="distributor"><span>Distribuidor −35 %</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="data">Envío a</p>
+          <div class="choice">
+            <label><input type="radio" name="country" value="ES" checked><span>España</span></label>
+            <label><input type="radio" name="country" value="DE"><span>Alemania</span></label>
+            <label><input type="radio" name="country" value="GB"><span>Reino Unido</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="data">NIF-IVA validado en VIES</p>
+          <div class="choice">
+            <label><input type="radio" name="vatid" value="yes" checked><span>Sí</span></label>
+            <label><input type="radio" name="vatid" value="no"><span>No</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-out">
+        <div class="sim-out-head">
+          <p class="data">Precio resultante</p>
+          <span id="sim-stamp" class="stamp wait">Nacional · 21 %</span>
+        </div>
+        <div class="sim-lines" id="sim-lines">
+          <div class="sim-line"><span class="k">Tarifa (neto)</span><span class="v">100,00 €</span></div>
+          <div class="sim-line"><span class="k">Descuento del grupo</span><span class="v" id="sim-discount">—</span></div>
+          <div class="sim-line"><span class="k">Precio neto</span><span class="v" id="sim-net">80,00 €</span></div>
+          <div class="sim-line"><span class="k" id="sim-vat-label">IVA</span><span class="v" id="sim-vat">16,80 €</span></div>
+          <div class="sim-line total"><span class="k">El cliente paga</span><span class="v" id="sim-total">96,80 €</span></div>
+        </div>
+        <p class="sim-why" id="sim-why">Cliente empresa en el mismo país que la tienda.</p>
+      </div>
+    </div>
+
+    <p class="caveat rv">
+      <b>Para que quede claro.</b> Esto es una demostración del motor de reglas en esta página web,
+      no el plugin funcionando. La validación VIES real se hace contra el servicio de la Comisión
+      Europea, y Entrepo está construido para que una caída de VIES nunca bloquee un pedido.
+    </p>
+  </div>
+</section>
+
+<!-- ══ ESPECIFICACIÓN ════════════════════════════════════════ -->
+<section class="band-paper-2" id="spec">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Especificación</p>
+    <h2 class="sec-title rv">Qué hace, en detalle</h2>
+
+    <div class="split rv" style="margin-top:2.25rem">
+      <div>
+        <p class="claim">Pensado para tiendas que venden al por mayor o B2B —o B2B y B2C a la vez—, donde el cliente mayorista tiene que ver un precio neto y el minorista un precio con impuestos incluidos, y donde el régimen fiscal español tiene que salir bien en ambos.</p>
+        <p class="meta">
+          <span>WordPress 6.6+</span>
+          <span>PHP 8.0+</span>
+          <span>WooCommerce</span>
+          <span>Español · English</span>
+          <span>Versión 0.2.0</span>
+        </p>
+      </div>
+      <dl class="spec">
+        <div><dt>Precios</dt><dd>Grupos B2B ilimitados, cada uno con su descuento. Precio neto por rol en tienda, ficha de producto y carrito. Overrides por producto y variación.</dd></div>
+        <div><dt>IVA español</dt><dd>Recargo de equivalencia, y un configurador de un clic que siembra en tu tienda los tipos 21 / 10 / 0 % y la clase del recargo.</dd></div>
+        <div><dt>IVA europeo</dt><dd>Inversión del sujeto pasivo, y validación VIES que sigue funcionando cuando el servicio se cae: una caída de VIES nunca bloquea un pedido.</dd></div>
+        <div><dt>Rendimiento</dt><dd>Los precios se precalculan, no se computan en cada petición — carritos de cientos de líneas no ralentizan la tienda.</dd></div>
+        <div><dt>Registro</dt><dd>Alta B2B con nombre de empresa, NIF-IVA y país, retenida hasta que un administrador la aprueba.</dd></div>
+        <div><dt>Visibilidad</dt><dd>Oculta precios y compra a los visitantes sin cuenta, o a todo el que no sea cliente B2B aprobado.</dd></div>
+        <div><dt>Licencia</dt><dd>Cuando la licencia Pro caduca, tus precios configurados siguen funcionando. Pierdes actualizaciones y soporte, no tu tienda.</dd></div>
+        <div><dt>Desinstalación</dt><dd>Borrar el plugin elimina sus datos, pero nunca los datos fiscales de las facturas ya emitidas ni los tipos de IVA que sembró en tu tienda.</dd></div>
+      </dl>
+    </div>
+
+    <p class="caveat rv">
+      <b>Dónde están los límites.</b> La ocultación de precios cubre tanto la tienda como la Store API
+      pública de WooCommerce, incluida la agregación de rangos de precio que usan los bloques de
+      filtrado. Deliberadamente no toca la API autenticada wc/v3, porque esa exige claves de API y es
+      por donde el ERP o el sincronizador de stock de la propia tienda lee el catálogo: ocultarle los
+      precios rompería integraciones legítimas. Los administradores tampoco están afectados nunca.
+    </p>
+  </div>
+</section>
+
+<!-- ══ COMPARATIVA ═══════════════════════════════════════════ -->
+<section class="band-paper" id="compare">
+  <div class="shell">
+    <p class="data sec-kicker on-paper rv">Gratis o Pro</p>
+    <h2 class="sec-title rv">La versión gratuita es una tienda mayorista que funciona</h2>
+    <p class="sec-sub on-paper rv">No es una demo recortada a la que le han quitado lo útil. Puedes llevar un catálogo B2B real con ella y no pagar nunca. Pro añade lo que ahorra tiempo, y la gestión automática del IVA.</p>
+
+    <div class="cmp-tools rv">
+      <label class="toggle">
+        <input type="checkbox" id="only-diff">
+        <span class="track"></span>
+        Ver solo lo que añade Pro
+      </label>
+    </div>
+
+    <div class="table-scroll rv">
+      <table class="cmp">
+        <thead><tr><th scope="col">Función</th><th scope="col">Gratis</th><th scope="col">Pro</th></tr></thead>
+        <tbody>
+          <tr data-diff="no">
+            <td>Grupos B2B ilimitados<span class="sub">Cada uno con su porcentaje de descuento.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="no">
+            <td>Precio neto por rol<span class="sub">Servido en tienda, ficha de producto y carrito.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="no">
+            <td>Registro y aprobación B2B<span class="sub">Empresa, NIF-IVA y país, aprobado por un administrador.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="no">
+            <td>Ocultar precios y compra<span class="sub">A visitantes sin cuenta, o a todo el que no sea cliente B2B.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="no">
+            <td>Configurador del IVA español<span class="sub">Siembra los tipos 21 / 10 / 0 % y la clase del recargo.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="no">
+            <td>Recálculo automático al cambiar un grupo<span class="sub">Es una corrección del motor de precios, no una comodidad de pago.</span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="yes">
+            <td>Overrides de precio por producto y variación<span class="sub">El editor de precios, para lo que un porcentaje de grupo no puede expresar.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="yes">
+            <td>Simulador «¿qué ve este cliente?»<span class="sub">El precio exacto, y qué regla lo decidió.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="yes">
+            <td>Validación VIES automática<span class="sub">Exención intracomunitaria y recargo de equivalencia aplicados solos.</span></td>
+            <td><span class="nope"></span></td>
+            <td><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M3.5 12.5 9 18 20.5 6"/></svg></td>
+          </tr>
+          <tr data-diff="yes">
+            <td>Recálculo programado del catálogo completo<span class="sub">Programado o bajo demanda, para catálogos muy grandes.</span></td>
+            <td><span class="nope"></span></td>
+            <td><span class="soon">En desarrollo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRECIOS ═══════════════════════════════════════════════ -->
+<section class="band-deep" id="pricing">
+  <div class="shell">
+    <p class="data sec-kicker rv">Entrepo Pro</p>
+    <h2 class="sec-title rv">Precios</h2>
+    <p class="sec-sub rv">Un año de actualizaciones y soporte, con renovación anual y cancelable cuando quieras. El cobro, la factura y el IVA los gestiona Freemius.</p>
+
+    <div class="plans four">
+      <div class="plan rv">
+        <div class="plan-tag"><p class="data">Gratis</p></div>
+        <div class="price-fig"><span class="amt">0 €</span><span class="per">para siempre</span></div>
+        <p class="plan-note">Una tienda mayorista completa y funcional. Grupos ilimitados, precios netos, registro B2B y configuración del IVA español.</p>
+        <a class="btn btn-ghost" href="WPORG_ENTREPO" aria-disabled="true">En revisión en WordPress.org</a>
+      </div>
+
+      <div class="plan rv rv-d1">
+        <div class="plan-tag"><p class="data">Pro — 1 sitio</p></div>
+        <div class="price-fig"><span class="amt">99 €</span><span class="per">/ año</span></div>
+        <p class="plan-note">Todo lo de Gratis, más los overrides de precio, el simulador y la validación VIES automática. Para una sola tienda.</p>
+        <a class="btn btn-solid" href="https://checkout.freemius.com/plugin/35029/plan/59993/licenses/1/">Comprar Pro</a>
+      </div>
+
+      <div class="plan feature rv rv-d2">
+        <div class="plan-tag"><p class="data">Pro — 5 sitios</p><span class="pin">Agencias</span></div>
+        <div class="price-fig"><span class="amt">199 €</span><span class="per">/ año</span></div>
+        <p class="plan-note">La misma licencia Pro en cinco tiendas. La opción habitual de un estudio que lleva tiendas de clientes.</p>
+        <a class="btn btn-solid" href="https://checkout.freemius.com/plugin/35029/plan/59993/licenses/5/">Comprar 5 sitios</a>
+      </div>
+
+      <div class="plan rv rv-d3">
+        <div class="plan-tag"><p class="data">Agencia — 25 sitios</p></div>
+        <div class="price-fig"><span class="amt">399 €</span><span class="per">/ año</span></div>
+        <p class="plan-note">Veinticinco tiendas bajo una licencia, con soporte prioritario. ¿Necesitas más? Escríbeme y lo arreglamos.</p>
+        <a class="btn btn-ghost" href="https://checkout.freemius.com/plugin/35029/plan/59993/licenses/25/">Comprar Agencia</a>
+      </div>
+    </div>
+
+    <div class="assurance">
+      <p><b>Una licencia caducada nunca rompe una tienda.</b> Deja de pagar y tus grupos, precios y reglas de IVA siguen funcionando. Pierdes actualizaciones y soporte, nada más.</p>
+      <p><b>Pago seguro con Freemius.</b> Tarjeta y PayPal, con factura con IVA, y la clave de licencia por correo.</p>
+      <p><b>Pruébalo gratis primero.</b> La versión gratuita no es una demo: instálala, lleva tu catálogo con ella, y pasa a Pro solo si se lo gana.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact has-form" id="contact">
+  <div class="shell">
+    <div>
+      <p class="data">Dudas antes de comprar</p>
+      <h2>Pregunta por tu caso concreto de IVA</h2>
+      <p>B2B y B2C mezclados, recargo de equivalencia, un catálogo con decenas de miles de variaciones, o licencias de agencia por encima de 25 sitios. Recibes una respuesta de verdad, no una secuencia de ventas.</p>
+    </div>
+
+    <form class="form" id="contact-form" method="POST">
+      <div class="form-row">
+        <label><span>Nombre</span><input type="text" name="name" required placeholder="Tu nombre"></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="tu@empresa.com"></label>
+      </div>
+      <label><span>Sobre qué</span>
+        <select name="product">
+          <option selected>Entrepo — mayorista e IVA</option>
+          <option>Licencias para agencia</option>
+          <option>Malipo — pagos M-Pesa</option>
+          <option>Aegis — seguridad y limpieza</option>
+          <option>Otra cosa</option>
+        </select>
+      </label>
+      <label><span>Mensaje</span><textarea name="message" required placeholder="¿Cómo vende tu tienda: solo B2B, o B2B y B2C a la vez?"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Deja esto vacío<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <button class="btn btn-dark" type="submit">Enviar mensaje</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-note">Tu dirección se usa para responderte, nada más. Sin lista, sin secuencia.</p>
+      <noscript><p>Este formulario necesita JavaScript para enviarse.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <p class="data"><a href="index.html">Honest Plugins</a> — WordPress y WooCommerce</p>
+    <p class="data"><a href="malipo.html">Malipo</a> · <a href="aegis.html">Aegis Security</a></p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
