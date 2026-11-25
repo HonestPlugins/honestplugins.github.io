@@ -1,0 +1,9 @@
+{
+  "_comentario": "Manifiesto de actualizaciones del build de PAGO de Attesta. Lo lee Attesta_Updater a traves de la cabecera Update URI del plugin. El build gratuito NO lo usa: ese lo actualiza WordPress.org. El hueco {clave} lo rellena el plugin con la licencia del sitio, porque este fichero es publico y no puede llevar la clave de nadie dentro. Para publicar una version nueva: subir el zip al servidor de entregas y subir aqui el numero de version; hasta que ese numero suba, nadie recibe aviso.",
+  "version": "1.0.0",
+  "requires": "6.4",
+  "requires_php": "7.4",
+  "tested": "7.1",
+  "url": "https://honestplugins.github.io/attesta.html",
+  "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=pro&clave={clave}"
+}
