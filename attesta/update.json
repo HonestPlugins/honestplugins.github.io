@@ -1,9 +1,10 @@
 {
-  "_comentario": "Manifiesto de actualizaciones del build de PAGO de Attesta. Lo lee Attesta_Updater a traves de la cabecera Update URI del plugin. El build gratuito NO lo usa: ese lo actualiza WordPress.org. El hueco {clave} lo rellena el plugin con la licencia del sitio, porque este fichero es publico y no puede llevar la clave de nadie dentro. Para publicar una version nueva: subir el zip al servidor de entregas y subir aqui el numero de version; hasta que ese numero suba, nadie recibe aviso.",
+  "_comentario": "Manifiesto de actualizaciones del build de PAGO de Attesta. Lo lee Attesta_Updater a traves de la cabecera Update URI del plugin. El build gratuito NO lo usa: ese lo actualiza WordPress.org. La clave NO viaja en la URL: el plugin la manda en una cabecera Authorization, porque nginx registra la URI entera y la licencia de cada cliente acabaria en el log de acceso. El campo firma es la firma Ed25519 del zip, que el plugin comprueba ANTES de instalar; sin ella no instala. Se saca con: node bin/licencia.mjs firmar <zip>. Para publicar una version nueva: subir el zip al servidor de entregas y subir aqui el numero de version; hasta que ese numero suba, nadie recibe aviso.",
   "version": "1.0.0",
   "requires": "6.4",
   "requires_php": "7.4",
   "tested": "7.1",
   "url": "https://honestplugins.github.io/attesta.html",
-  "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=pro&clave={clave}"
+  "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=pro",
+  "firma": "EVSXiZfDNIJ-gm_1lD8OUWJrghWnG4Ro5dZapLZOqDJmc0R1PxGivIL3vhD7HVNGRzaESWInBzzuSGPJoeegBg"
 }

@@ -1,5 +1,5 @@
 {
-  "_comentario": "Catalogo de anadidos de Attesta, que lee la pantalla Add-ons del build de pago. Fichero publico y estatico: aqui no va ninguna clave ni ningun dato de ningun cliente. El hueco {clave} lo rellena el plugin con la licencia del sitio. Un anadido solo se puede instalar si su id viene dentro de la clave firmada del comerciante, cosa que comprueban el plugin y el servidor de entregas por separado. Mientras `disponible` sea false el anadido se lista como que aun no esta a la venta y no se puede comprar ni instalar.",
+  "_comentario": "Catalogo de anadidos de Attesta, que lee la pantalla Add-ons del build de pago. Fichero publico y estatico: aqui no va ninguna clave ni ningun dato de ningun cliente. La clave NO viaja en la URL: el plugin la manda en una cabecera Authorization. Cada anadido lleva la firma Ed25519 de su zip, que el plugin comprueba antes de instalar; con firma vacia no se instala nada. Un anadido solo se puede instalar si su id viene dentro de la clave firmada del comerciante, cosa que comprueban el plugin y el servidor de entregas por separado. Mientras `disponible` sea false el anadido se lista como que aun no esta a la venta y no se puede comprar ni instalar.",
   "addons": [
     {
       "id": "facturacion",
@@ -9,7 +9,8 @@
       "precio": "",
       "disponible": false,
       "comprar": "https://honestplugins.github.io/attesta.html",
-      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=facturacion&clave={clave}"
+      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=facturacion",
+      "firma": ""
     },
     {
       "id": "desembolsos",
@@ -19,7 +20,8 @@
       "precio": "",
       "disponible": false,
       "comprar": "https://honestplugins.github.io/attesta.html",
-      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=desembolsos&clave={clave}"
+      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=desembolsos",
+      "firma": ""
     },
     {
       "id": "recurrentes",
@@ -29,7 +31,8 @@
       "precio": "",
       "disponible": false,
       "comprar": "https://honestplugins.github.io/attesta.html",
-      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=recurrentes&clave={clave}"
+      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=recurrentes",
+      "firma": ""
     },
     {
       "id": "antifraude",
@@ -39,7 +42,8 @@
       "precio": "",
       "disponible": false,
       "comprar": "https://honestplugins.github.io/attesta.html",
-      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=antifraude&clave={clave}"
+      "package": "https://206-72-199-222.sslip.io/attesta/descargar?producto=antifraude",
+      "firma": ""
     }
   ]
 }
